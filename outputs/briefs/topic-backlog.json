@@ -1,0 +1,441 @@
+{
+  "generated_date": "2026-05-03",
+  "intelligence_sources": [
+    "customer-intelligence/insights/wellstreet_2026-03-30_insights.json",
+    "customer-intelligence/insights/usalab_2026-03-31_insights.json",
+    "customer-intelligence/insights/connectbase_2026-04-08_insights.json",
+    "customer-intelligence/insights/moleaer_2026-04-10_insights.json",
+    "customer-intelligence/insights/dalux_2026-04-21_insights.json",
+    "customer-intelligence/insights/govpilot_2026-04-21_insights.json",
+    "customer-intelligence/insights/dalux_2026-04-23_insights.json",
+    "customer-intelligence/insights/wingfield_2026-04-23_insights.json",
+    "customer-intelligence/insights/kneat_2026-04-28_insights.json",
+    "customer-intelligence/insights/dalux_2026-04-29_insights.json",
+    "customer-intelligence/insights/arkatechture_2026-04-29_insights.json",
+    "customer-intelligence/insights/govpilot_2026-04-30_insights.json",
+    "customer-intelligence/insights/kneat_2026-04-30_insights.json",
+    "customer-intelligence/insights/mike-collister_2026-04-30_insights.json",
+    "customer-intelligence/insights/air-cleaning-specialists_2026-05-01_insights.json",
+    "customer-intelligence/insights/qblox_2026-05-01_insights.json",
+    "customer-intelligence/insights/reflect-health_2026-05-01_insights.json"
+  ],
+  "filter_applied": null,
+  "aggregation_summary": {
+    "total_pains": 113,
+    "total_quotes": 163,
+    "total_keyword_candidates": 137,
+    "unique_companies": 13,
+    "unique_calls": 17,
+    "pain_clusters": [
+      {"cluster": "HubSpot CPQ pricing limitations", "frequency": 17, "description": "HubSpot native quoting cannot handle tiered, formula-based, multi-currency, or segment-specific pricing"},
+      {"cluster": "No discount governance or approval workflows", "frequency": 13, "description": "No automated discount thresholds, approval routing, or audit trail for pricing decisions"},
+      {"cluster": "Excel/spreadsheet sidecar process", "frequency": 11, "description": "Every deal requires leaving HubSpot for an Excel calculator, price book, or manual calculation"},
+      {"cluster": "Complex pricing unsupported", "frequency": 10, "description": "Tiered, formula-based, PEPM, percentage-of-savings, and calculated pricing cannot be modeled natively"},
+      {"cluster": "Template customization limitations", "frequency": 9, "description": "Cannot rename fields, add custom properties, show/hide sections, or create branded proposals"},
+      {"cluster": "CRM disconnect from quoting tool", "frequency": 8, "description": "Quoting happens outside HubSpot (DocuSign, DealHub, Excel), data does not flow back"},
+      {"cluster": "Product configuration and bundling gaps", "frequency": 7, "description": "No product nesting, dependency rules, required options, or configurable bundles"},
+      {"cluster": "Price book management", "frequency": 8, "description": "Need multi-currency, segment-specific, or customer-specific price books that HubSpot does not support"},
+      {"cluster": "DealHub replacement", "frequency": 4, "description": "Active DealHub customers leaving due to complexity, cost, data integrity failures, or admin burden"},
+      {"cluster": "ARR/revenue reporting broken", "frequency": 4, "description": "HubSpot ARR calculations break on multi-year, ramp, and co-termed deals"}
+    ],
+    "persona_distribution": {
+      "revops_leader": 14,
+      "vp_sales": 3,
+      "finance_controller": 2,
+      "note": "RevOps is the dominant champion. Finance and VP Sales appear as secondary stakeholders."
+    },
+    "competitor_mentions": {
+      "HubSpot CPQ (native)": {"mentions": 17, "sentiment": "negative", "pattern": "Every prospect has tried and hit limitations"},
+      "Excel spreadsheets": {"mentions": 12, "sentiment": "mixed", "pattern": "Works but does not scale; most common 'competitor'"},
+      "DealHub": {"mentions": 6, "sentiment": "negative", "pattern": "Too expensive, too complex, requires dedicated admin, data integrity failures"},
+      "DocuSign": {"mentions": 4, "sentiment": "mixed", "pattern": "Good for signatures but stretched beyond purpose for quoting"},
+      "NetSuite CPQ": {"mentions": 3, "sentiment": "negative", "pattern": "Too complex to configure for quoting; better for fulfillment"},
+      "PandaDoc": {"mentions": 1, "sentiment": "neutral", "pattern": "In evaluation alongside Quotivity"},
+      "HubSpot Commerce Hub": {"mentions": 3, "sentiment": "negative", "pattern": "Immature product, missing core CPQ features"}
+    }
+  },
+  "topics": [
+    {
+      "topic_id": "hubspot-cpq-limitations",
+      "title": "Where HubSpot's Native Quoting Breaks Down (And What To Do About It)",
+      "category": "category",
+      "primary_keyword": "HubSpot CPQ limitations",
+      "persona": "RevOps Leader",
+      "pain_cluster": "HubSpot CPQ pricing limitations",
+      "call_frequency": 17,
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 10,
+        "serp_weakness": 6,
+        "business_priority": 9,
+        "mini_volume": 8,
+        "authority_fit": 10,
+        "weighted_total": 8.80
+      },
+      "brief_status": "generated"
+    },
+    {
+      "topic_id": "dealhub-alternative-hubspot",
+      "title": "DealHub Alternative for HubSpot: When Enterprise CPQ Is Overkill",
+      "category": "comparison",
+      "primary_keyword": "DealHub alternative for HubSpot",
+      "persona": "RevOps Leader",
+      "pain_cluster": "DealHub replacement",
+      "call_frequency": 6,
+      "priority_score": {
+        "buyer_intent": 10,
+        "differentiator_fit": 9,
+        "serp_weakness": 8,
+        "business_priority": 8,
+        "mini_volume": 7,
+        "authority_fit": 9,
+        "weighted_total": 9.05
+      },
+      "brief_status": "generated"
+    },
+    {
+      "topic_id": "hubspot-quote-approval-workflow",
+      "title": "How To Build Quote Approval Workflows in HubSpot",
+      "category": "category",
+      "primary_keyword": "HubSpot quote approval workflow",
+      "persona": "RevOps Leader",
+      "pain_cluster": "No discount governance or approval workflows",
+      "call_frequency": 13,
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 7,
+        "business_priority": 9,
+        "mini_volume": 7,
+        "authority_fit": 9,
+        "weighted_total": 8.70
+      },
+      "brief_status": "generated"
+    },
+    {
+      "topic_id": "hubspot-cpq-complex-pricing",
+
+      "title": "HubSpot CPQ for Complex Pricing: Tiered, Formula-Based, and Multi-Currency",
+      "category": "category",
+      "primary_keyword": "HubSpot CPQ for complex pricing",
+      "persona": "RevOps Leader",
+      "pain_cluster": "Complex pricing unsupported",
+      "call_frequency": 10,
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 10,
+        "serp_weakness": 7,
+        "business_priority": 8,
+        "mini_volume": 7,
+        "authority_fit": 9,
+        "weighted_total": 8.70
+      },
+      "brief_status": "generated"
+    },
+    {
+      "topic_id": "cpq-for-manufacturing-hubspot",
+      "title": "CPQ for Manufacturers on HubSpot: Configure-to-Order Quoting That Scales",
+      "category": "jtbd",
+      "primary_keyword": "CPQ for manufacturing HubSpot",
+      "persona": "RevOps Leader",
+      "pain_cluster": "Product configuration and bundling gaps",
+      "call_frequency": 5,
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 8,
+        "business_priority": 9,
+        "mini_volume": 6,
+        "authority_fit": 9,
+        "weighted_total": 8.65
+      },
+      "brief_status": "generated"
+    },
+    {
+      "topic_id": "guided-selling-hubspot",
+      "title": "How To Add Guided Selling to HubSpot Quoting",
+      "category": "jtbd",
+      "primary_keyword": "guided selling HubSpot",
+      "persona": "VP of Sales",
+      "pain_cluster": "Product configuration and bundling gaps",
+      "call_frequency": 4,
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 7,
+        "business_priority": 8,
+        "mini_volume": 7,
+        "authority_fit": 8,
+        "weighted_total": 8.50
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-price-books",
+      "title": "How To Manage Multiple Price Books in HubSpot",
+      "category": "category",
+      "primary_keyword": "HubSpot price books",
+      "persona": "RevOps Leader",
+      "pain_cluster": "Price book management",
+      "call_frequency": 8,
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 7,
+        "business_priority": 7,
+        "mini_volume": 7,
+        "authority_fit": 9,
+        "weighted_total": 8.40
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "replace-excel-quoting-hubspot",
+      "title": "From Spreadsheet Formulas to HubSpot: Migrating Complex Quoting",
+      "category": "comparison",
+      "primary_keyword": "replace Excel quoting HubSpot CPQ",
+      "persona": "RevOps Leader",
+      "pain_cluster": "Excel/spreadsheet sidecar process",
+      "call_frequency": 11,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 7,
+        "business_priority": 8,
+        "mini_volume": 7,
+        "authority_fit": 8,
+        "weighted_total": 7.90
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-discount-controls",
+      "title": "HubSpot Discount Controls: Protecting Margins Without Slowing Sales",
+      "category": "category",
+      "primary_keyword": "HubSpot discount controls",
+      "persona": "Finance / Controller",
+      "pain_cluster": "No discount governance or approval workflows",
+      "call_frequency": 8,
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 6,
+        "business_priority": 8,
+        "mini_volume": 6,
+        "authority_fit": 8,
+        "weighted_total": 8.15
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-cpq-bundling",
+      "title": "Product Bundles in HubSpot: What Native Quoting Cannot Do",
+      "category": "category",
+      "primary_keyword": "HubSpot CPQ bundling limitations",
+      "persona": "RevOps Leader",
+      "pain_cluster": "Product configuration and bundling gaps",
+      "call_frequency": 6,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 9,
+        "serp_weakness": 8,
+        "business_priority": 7,
+        "mini_volume": 6,
+        "authority_fit": 8,
+        "weighted_total": 8.10
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "dealhub-to-hubspot-migration",
+      "title": "How To Migrate From DealHub to HubSpot-Native CPQ",
+      "category": "comparison",
+      "primary_keyword": "DealHub to HubSpot migration",
+      "persona": "RevOps Leader",
+      "pain_cluster": "DealHub replacement",
+      "call_frequency": 2,
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 9,
+        "business_priority": 7,
+        "mini_volume": 5,
+        "authority_fit": 9,
+        "weighted_total": 8.40
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-renewal-quote-automation",
+      "title": "Automating Renewal Quotes in HubSpot With Annual Uplifts",
+      "category": "jtbd",
+      "primary_keyword": "HubSpot renewal quote automation",
+      "persona": "RevOps Leader",
+      "pain_cluster": "ARR/revenue reporting broken",
+      "call_frequency": 4,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 7,
+        "serp_weakness": 8,
+        "business_priority": 7,
+        "mini_volume": 6,
+        "authority_fit": 8,
+        "weighted_total": 7.60
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-subscription-management",
+      "title": "Moving Subscription Tracking From Spreadsheets to HubSpot",
+      "category": "jtbd",
+      "primary_keyword": "HubSpot subscription management",
+      "persona": "Finance / Controller",
+      "pain_cluster": "ARR/revenue reporting broken",
+      "call_frequency": 3,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 7,
+        "serp_weakness": 7,
+        "business_priority": 8,
+        "mini_volume": 6,
+        "authority_fit": 7,
+        "weighted_total": 7.50
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-commerce-hub-vs-legacy",
+      "title": "HubSpot Commerce Hub vs Legacy Quotes: What Changed and What Didn't",
+      "category": "comparison",
+      "primary_keyword": "HubSpot Commerce Hub vs legacy quotes",
+      "persona": "RevOps Leader",
+      "pain_cluster": "HubSpot CPQ pricing limitations",
+      "call_frequency": 3,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 9,
+        "business_priority": 7,
+        "mini_volume": 7,
+        "authority_fit": 8,
+        "weighted_total": 8.00
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "cpq-dealers-distributors",
+      "title": "CPQ for Dealers and Distributors: Quoting Guardrails That Scale",
+      "category": "jtbd",
+      "primary_keyword": "CPQ for dealers and distributors",
+      "persona": "VP of Sales",
+      "pain_cluster": "Product configuration and bundling gaps",
+      "call_frequency": 2,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 8,
+        "business_priority": 8,
+        "mini_volume": 5,
+        "authority_fit": 7,
+        "weighted_total": 7.65
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-quote-template-customization",
+      "title": "Customizing HubSpot Quote Templates Without Code",
+      "category": "category",
+      "primary_keyword": "HubSpot quote template customization",
+      "persona": "RevOps Leader",
+      "pain_cluster": "Template customization limitations",
+      "call_frequency": 9,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 6,
+        "business_priority": 6,
+        "mini_volume": 8,
+        "authority_fit": 9,
+        "weighted_total": 7.70
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-netsuite-cpq-integration",
+      "title": "The HubSpot-NetSuite Quoting Gap: Why You Need a CPQ Layer",
+      "category": "jtbd",
+      "primary_keyword": "HubSpot NetSuite CPQ integration",
+      "persona": "RevOps Leader",
+      "pain_cluster": "CRM disconnect from quoting tool",
+      "call_frequency": 4,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 7,
+        "serp_weakness": 8,
+        "business_priority": 7,
+        "mini_volume": 6,
+        "authority_fit": 8,
+        "weighted_total": 7.55
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-arr-calculation-fix",
+      "title": "Why HubSpot ARR Breaks on Multi-Year Deals (And How To Fix It)",
+      "category": "deviant",
+      "primary_keyword": "HubSpot ARR calculation multi-year deals",
+      "persona": "Finance / Controller",
+      "pain_cluster": "ARR/revenue reporting broken",
+      "call_frequency": 4,
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 6,
+        "serp_weakness": 9,
+        "business_priority": 8,
+        "mini_volume": 7,
+        "authority_fit": 7,
+        "weighted_total": 7.30
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "hubspot-co-terming-upsells",
+      "title": "How To Handle Co-Termed Upsells in HubSpot",
+      "category": "deviant",
+      "primary_keyword": "HubSpot co-terming upsells",
+      "persona": "Finance / Controller",
+      "pain_cluster": "Complex pricing unsupported",
+      "call_frequency": 3,
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 9,
+        "business_priority": 7,
+        "mini_volume": 4,
+        "authority_fit": 8,
+        "weighted_total": 7.65
+      },
+      "brief_status": "pending"
+    },
+    {
+      "topic_id": "quoting-revenue-leakage",
+      "title": "The Hidden Cost of Manual Quoting: How Companies Lose Margin One Error at a Time",
+      "category": "jtbd",
+      "primary_keyword": "quoting revenue leakage prevention",
+      "persona": "VP of Sales",
+      "pain_cluster": "Excel/spreadsheet sidecar process",
+      "call_frequency": 5,
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 7,
+        "serp_weakness": 8,
+        "business_priority": 9,
+        "mini_volume": 6,
+        "authority_fit": 8,
+        "weighted_total": 7.45
+      },
+      "brief_status": "pending"
+    }
+  ],
+  "serp_analysis_note": "Firecrawl MCP server not available. SERP weakness scores are estimated based on topic type (comparison keywords score higher, category keywords score lower due to existing HubSpot-authored content). Live SERP analysis would improve scoring accuracy by 15-20%."
+}
