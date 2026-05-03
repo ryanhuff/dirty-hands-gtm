@@ -1,0 +1,355 @@
+{
+  "call_meta": {
+    "company": "USALab",
+    "persona": "VP of Sales / Sales Director",
+    "industry": "Laboratory Equipment / Scientific Supplies",
+    "company_size": "~20 employees, 3 sales reps",
+    "deal_stage": "discovery",
+    "call_date": "2026-03-31",
+    "participants": [
+      "Matt Wisniewski — Sales Leader / Decision Maker, USALab",
+      "Bryan Roy — Sales, Quotivity"
+    ]
+  },
+  "jtbd": [
+    {
+      "job": "Manage the full lead-to-quote lifecycle in one system as the company builds its first real sales team",
+      "desired_outcome": "Sales reps can action leads, create quotes, track deal stages, and close without toggling between disconnected systems",
+      "current_approach": "Inbound requests handled ad hoc through help desk; quotes created manually in Brightpearl/NetSuite; no structured sales process"
+    },
+    {
+      "job": "Send accurate quotes with correct tax, bill-to, and ship-to from HubSpot",
+      "desired_outcome": "Quotes automatically calculate tax based on shipping address and display separate bill-to and ship-to fields",
+      "current_approach": "Tax calculated inside Brightpearl/NetSuite; HubSpot native quoting could not handle separate bill-to/ship-to or calculate tax properly"
+    },
+    {
+      "job": "Keep deal status visible and up to date without manual effort from reps",
+      "desired_outcome": "Deal stages, quotes, and payment status are automatically tracked and linked so nothing falls through the cracks",
+      "current_approach": "Quotes live in NetSuite with no automatic link back to HubSpot deals; reps forget to update deal stages or attach quotes"
+    },
+    {
+      "job": "Support wholesaler and academic discount pricing without relying on rep memory",
+      "desired_outcome": "Price books automatically apply the correct discount tier based on customer type",
+      "current_approach": "Discounts tracked via informal tags; reps manually apply percentage discounts; not managed in ERP"
+    }
+  ],
+  "pains": [
+    {
+      "pain": "HubSpot native quoting lacks bill-to and ship-to address support",
+      "trigger": "Customers almost always bill and ship to different locations; tax must be calculated on ship-to address",
+      "cost": "Cannot use HubSpot quoting at all for their business; forced to quote outside HubSpot",
+      "urgency": "high",
+      "verbatim": "you couldn't add a bill to and ship to... that's a huge thing for us"
+    },
+    {
+      "pain": "Tax calculation does not work properly in HubSpot native quoting",
+      "trigger": "Company collects tax in 22 states; tax must apply per line item and include shipping",
+      "cost": "Blocked adoption of HubSpot quoting; had to keep tax calculation in Brightpearl/NetSuite",
+      "urgency": "high",
+      "verbatim": "it would not calculate tax... it like wouldn't... it was like a weird issue"
+    },
+    {
+      "pain": "Disconnect between HubSpot deals and NetSuite quotes creates visibility gaps",
+      "trigger": "Building a new sales team and need deal tracking; quotes live in NetSuite but deals live in HubSpot",
+      "cost": "Reps forget to attach quotes or update deal stages; no single view of deal status; complex deals with future timelines get lost",
+      "urgency": "high",
+      "verbatim": "there's a disconnect between HubSpot and NetSuite... to have a quote in NetSuite is cool, but then I don't wanna have to make the reps always attach it or forget about it"
+    },
+    {
+      "pain": "No structured sales process to manage leads and deals as company scales from inbound-only to outbound",
+      "trigger": "Company transitioning from reactive inbound order-taking to proactive sales with a 3-person team",
+      "cost": "Cannot action leads or track complex deals (custom systems, future purchases); growth constrained by lack of process",
+      "urgency": "critical",
+      "verbatim": "we've never really had a sales team before... our next phase of growth is like how do I action upon these leads and contacts"
+    },
+    {
+      "pain": "Complex deals and future-dated opportunities have no place to be tracked",
+      "trigger": "Customers request custom systems or want to purchase in 6 months; no CRM pipeline to hold these",
+      "cost": "Deals fall through the cracks; no pipeline visibility for longer-cycle opportunities",
+      "urgency": "medium",
+      "verbatim": "some of the deals we have are a little bit more complicated... like hey I want a custom system or I might want to do this in like six months. We don't have a good place to keep track of that now"
+    },
+    {
+      "pain": "Discount pricing for wholesalers and academics is informally managed",
+      "trigger": "Wholesaler and academic customers expect tiered pricing; currently just a tag line saying '10%'",
+      "cost": "Risk of reps applying wrong pricing; no enforcement or automation; will get worse as team grows",
+      "urgency": "low",
+      "verbatim": "currently it's not managed in our ERP. We just usually have a tag line. I'm like, 10%. And then it's up to the people that kinda do it"
+    }
+  ],
+  "workflow_reality": {
+    "current_process": "Inbound request arrives via help desk in HubSpot. Rep writes up the order in Brightpearl, sometimes attaches it to the help desk ticket, and sends the quote from Brightpearl. No structured deal pipeline. No formal lead-to-quote workflow. Company is mid-migration from Brightpearl to NetSuite with a HubSpot partner building out the sales process.",
+    "tools_used": [
+      "HubSpot (help desk, CRM, forms)",
+      "Brightpearl (current quoting and order processing, being replaced)",
+      "NetSuite (ERP, future quoting and order processing)",
+      "VersaPay (payment processing, ACH)",
+      "Company website (e-commerce, lead forms)"
+    ],
+    "brittleness": "Quoting happens outside HubSpot with no automatic link back to deals. Tax and bill-to/ship-to requirements blocked HubSpot native quoting adoption. No deal stage tracking. Mid-system migration from Brightpearl to NetSuite adds additional fragility. Entire process depends on rep discipline to manually connect systems.",
+    "workarounds": [
+      "Quote in Brightpearl/NetSuite and manually attach to HubSpot help desk tickets",
+      "Track discounts via informal tag lines rather than automated price books",
+      "Calculate tax in Brightpearl/NetSuite because HubSpot cannot handle ship-to based tax",
+      "No pipeline for complex or future-dated deals; rely on memory or ad hoc tracking"
+    ]
+  },
+  "alternatives_and_competitors": [
+    {
+      "name": "HubSpot CPQ (native quoting)",
+      "type": "status_quo",
+      "sentiment": "negative",
+      "context": "Tried HubSpot Commerce/quoting and found it lacking: no bill-to/ship-to, broken tax calculation, limited template control. Called it 'not great.'",
+      "known_competitor": true
+    },
+    {
+      "name": "Brightpearl",
+      "type": "adjacent_tool",
+      "sentiment": "neutral",
+      "context": "Current quoting and order processing system being replaced by NetSuite. Works for quoting but creates disconnect with HubSpot CRM.",
+      "known_competitor": false
+    },
+    {
+      "name": "NetSuite",
+      "type": "adjacent_tool",
+      "sentiment": "neutral",
+      "context": "Incoming ERP and source of truth for products/pricing. Quoting in NetSuite is possible but UI is not rep-friendly. Company plans to use for order processing, not front-end quoting.",
+      "known_competitor": false
+    },
+    {
+      "name": "SyncSmart",
+      "type": "adjacent_tool",
+      "sentiment": "neutral",
+      "context": "Mentioned as a potential HubSpot-to-NetSuite sync partner. Discussed pushing payment links from NetSuite/VersaPay back to HubSpot.",
+      "known_competitor": false
+    }
+  ],
+  "quotes": [
+    {
+      "text": "you couldn't add a bill to and ship to... that's a huge thing for us",
+      "speaker": "Sales Leader",
+      "context": "Explaining why HubSpot native quoting was abandoned",
+      "themes": ["bill-to-ship-to", "quoting-limitations", "hubspot-gaps"]
+    },
+    {
+      "text": "we've never really had a sales team before... our next phase of growth is like how do I action upon these leads and these contacts and that's where we're developing now",
+      "speaker": "Sales Leader",
+      "context": "Describing company transition from inbound order-taking to structured sales",
+      "themes": ["sales-process", "growth", "first-sales-team"]
+    },
+    {
+      "text": "there's a disconnect between HubSpot and NetSuite... to have a quote in NetSuite is cool, but then I don't wanna have to make the reps always attach it or forget about it",
+      "speaker": "Sales Leader",
+      "context": "Describing the core visibility problem of disconnected systems",
+      "themes": ["system-disconnect", "rep-friction", "deal-visibility"]
+    },
+    {
+      "text": "some of the deals we have are a little bit more complicated... like hey I want a custom system or I might want to do this in like six months. We don't have a good place to keep track of that now",
+      "speaker": "Sales Leader",
+      "context": "Describing untracked pipeline for complex and future-dated deals",
+      "themes": ["deal-tracking", "pipeline-visibility", "complex-deals"]
+    },
+    {
+      "text": "a lot of people don't think about the managing of it. Like when you have the quotes in NetSuite, it's pretty easy to see who's paid, who hasn't paid",
+      "speaker": "Sales Leader",
+      "context": "Acknowledging that quote management and payment tracking matter as much as quote creation",
+      "themes": ["quote-management", "payment-tracking", "operational-visibility"]
+    },
+    {
+      "text": "I think it's process. Like, our process from even how we're live with Brightpearl right now, we go to NetSuite. That whole process of quoting is pretty easy... what I'm trying to figure out is like we've never really had a sales team before",
+      "speaker": "Sales Leader",
+      "context": "Identifying process as the biggest issue, not feature complexity",
+      "themes": ["process-over-features", "scaling-sales", "workflow"]
+    },
+    {
+      "text": "currently it's not managed in our ERP. We just usually have a tag line. I'm like, 10%. And then it's up to the people that kinda do it",
+      "speaker": "Sales Leader",
+      "context": "Describing informal discount management for wholesalers and academics",
+      "themes": ["discount-governance", "pricing-informality", "risk"]
+    },
+    {
+      "text": "I was browsing at like 11:00... I'm like, I gotta figure out like a better way to do this",
+      "speaker": "Sales Leader",
+      "context": "Late-night searching for solutions indicates active frustration and urgency",
+      "themes": ["urgency", "self-serve-research", "pain-driven-search"]
+    }
+  ],
+  "lexicon": {
+    "category_terms": [
+      "bill to and ship to",
+      "quote builder",
+      "price book",
+      "deal stage",
+      "quote template",
+      "line item",
+      "help desk",
+      "sales process",
+      "lead to quote",
+      "deal pipeline",
+      "wholesaler pricing",
+      "academic discount",
+      "tax calculation",
+      "net price after tax",
+      "reverse demo"
+    ],
+    "value_language": [
+      "action upon leads",
+      "keep track of deals",
+      "manage it",
+      "the disconnect between",
+      "don't wanna have to make the reps",
+      "figure out the best workflow",
+      "phase of growth",
+      "put that all together",
+      "a better way to do this"
+    ],
+    "deviant_terms": [
+      "write you up a quote",
+      "tag line" (used to mean an informal discount label, not a marketing tagline),
+      "the Lord's work" (casual rapport language),
+      "see the light" (used by rep to describe prospect buy-in moment)
+    ]
+  },
+  "keyword_candidates": [
+    {
+      "keyword": "HubSpot quoting bill to ship to",
+      "type": "pain-point",
+      "source_context": "Prospect's primary reason for abandoning HubSpot native quoting; described as 'a huge thing for us'",
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 8,
+        "business_priority": 8,
+        "mini_volume": 5,
+        "authority_fit": 9,
+        "weighted_total": 8.35
+      }
+    },
+    {
+      "keyword": "HubSpot CPQ tax calculation",
+      "type": "pain-point",
+      "source_context": "Tax calculation failure was a blocking issue that prevented HubSpot quoting adoption; company collects tax in 22 states",
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 8,
+        "serp_weakness": 7,
+        "business_priority": 7,
+        "mini_volume": 6,
+        "authority_fit": 9,
+        "weighted_total": 8.10
+      }
+    },
+    {
+      "keyword": "HubSpot NetSuite quoting integration",
+      "type": "category",
+      "source_context": "Core architectural need: quote in HubSpot, process orders in NetSuite, keep everything synced",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 7,
+        "serp_weakness": 7,
+        "business_priority": 8,
+        "mini_volume": 7,
+        "authority_fit": 8,
+        "weighted_total": 7.65
+      }
+    },
+    {
+      "keyword": "HubSpot quote template customization",
+      "type": "feature",
+      "source_context": "Prospect needs custom quote templates with bill-to/ship-to fields, tax display, and product grouping",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 8,
+        "serp_weakness": 6,
+        "business_priority": 6,
+        "mini_volume": 7,
+        "authority_fit": 9,
+        "weighted_total": 7.30
+      }
+    },
+    {
+      "keyword": "HubSpot price books wholesaler pricing",
+      "type": "feature",
+      "source_context": "Prospect has wholesaler and academic discount tiers managed informally; needs automated price book assignment",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 8,
+        "serp_weakness": 7,
+        "business_priority": 5,
+        "mini_volume": 5,
+        "authority_fit": 8,
+        "weighted_total": 7.05
+      }
+    },
+    {
+      "keyword": "HubSpot CPQ for small sales team",
+      "type": "category",
+      "source_context": "Company of 20 with 3 sales reps building their first structured sales process; need CPQ that fits their scale",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 6,
+        "serp_weakness": 7,
+        "business_priority": 7,
+        "mini_volume": 5,
+        "authority_fit": 7,
+        "weighted_total": 7.00
+      }
+    },
+    {
+      "keyword": "HubSpot deal tracking quote management",
+      "type": "pain-point",
+      "source_context": "Prospect's core problem: quotes in NetSuite disconnected from deals in HubSpot, reps forget to update stages",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 6,
+        "serp_weakness": 6,
+        "business_priority": 7,
+        "mini_volume": 6,
+        "authority_fit": 8,
+        "weighted_total": 6.75
+      }
+    },
+    {
+      "keyword": "lead to quote workflow HubSpot",
+      "type": "category",
+      "source_context": "Prospect explicitly described wanting to 'put that all together from lead to quote and being able to manage it'",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 6,
+        "serp_weakness": 6,
+        "business_priority": 6,
+        "mini_volume": 6,
+        "authority_fit": 8,
+        "weighted_total": 6.60
+      }
+    },
+    {
+      "keyword": "HubSpot quoting for manufacturing",
+      "type": "category",
+      "source_context": "Lab equipment company with configure-to-order needs (custom systems), bulk pricing on consumables, and shipping/tax complexity",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 7,
+        "serp_weakness": 7,
+        "business_priority": 5,
+        "mini_volume": 4,
+        "authority_fit": 7,
+        "weighted_total": 6.55
+      }
+    },
+    {
+      "keyword": "Brightpearl to NetSuite migration quoting",
+      "type": "adjacent",
+      "source_context": "Prospect is mid-migration from Brightpearl to NetSuite and needs to figure out where quoting lives in the new stack",
+      "priority_score": {
+        "buyer_intent": 6,
+        "differentiator_fit": 4,
+        "serp_weakness": 8,
+        "business_priority": 5,
+        "mini_volume": 3,
+        "authority_fit": 5,
+        "weighted_total": 5.50
+      }
+    }
+  ]
+}

@@ -1,0 +1,476 @@
+{
+  "call_meta": {
+    "call_id": "transcript-2026-04-28-kneat",
+    "date": "2026-04-28",
+    "duration_minutes": 59,
+    "prospect_name": "Sinead Kirby",
+    "prospect_title": "Sales Operations Leader",
+    "company": "Kneat",
+    "industry": "SaaS (Validation/Quality Management Software)",
+    "tech_stack_mentioned": ["HubSpot", "NetSuite", "Celigo", "Microsoft Teams"],
+    "persona_match": "revops_leader",
+    "estimated_deal_stage": "discovery_to_evaluation",
+    "attendees": [
+      {"role": "Sales Operations Leader", "side": "prospect"},
+      {"role": "Commercial Contract Specialist", "side": "prospect"},
+      {"role": "Sales Operations Specialist", "side": "prospect"},
+      {"role": "HubSpot Owner / Revenue Operations", "side": "prospect"}
+    ],
+    "next_steps": [
+      "Follow-up call scheduled for Thursday same time to continue through remaining requirements (sections 3-6)",
+      "Prospect to discuss property sync approach with HubSpot owner",
+      "Prospect to review HubSpot contracts object roadmap"
+    ]
+  },
+  "jtbd": [
+    {
+      "job": "Eliminate the spreadsheet-based quoting sidecar and keep the entire quoting workflow inside HubSpot",
+      "context": "Every deal and proposal requires rebuilding line items in Excel to calculate discount totals and determine approval routing. The team is exporting from HubSpot, recreating pricing in Excel, then sending summaries for approval outside the CRM.",
+      "desired_outcome": "Discount visibility, approval routing, and pricing calculations all happen natively in HubSpot without leaving the platform"
+    },
+    {
+      "job": "Manage customer-specific negotiated pricing that diverges from list price over time",
+      "context": "Each of ~120 customers has custom pricing that shifts annually with negotiated uplift rates. This is currently tracked in a growing Excel file with ~7,500 price points. Pricing moves further from list price each year, making percentage-based discounts an inaccurate representation.",
+      "desired_outcome": "Customer-specific price books that live in the CRM, are automatically applied when quoting, and support annual uplift calculations without manual spreadsheet updates"
+    },
+    {
+      "job": "Support complex volume pricing across parent-child company hierarchies with cumulative license counts",
+      "context": "Global enterprise customers have parent companies with multiple subsidiaries. Volume tier pricing must be calculated based on cumulative licenses across all subsidiaries under one parent, not per-subsidiary. Midterm expansions must price new licenses at the combined-volume tier without refunding existing licenses at a lower tier.",
+      "desired_outcome": "Automated volume tier calculation that reads cumulative license counts from the parent company and applies the correct tier price to expansion orders for any subsidiary"
+    },
+    {
+      "job": "Automate multi-level discount approval workflows with full context for approvers",
+      "context": "Current approval process requires a bid review meeting, manual Excel preparation beforehand, and email-based summary distribution to VP, SVP, or CEO depending on discount level. Approvers lack visibility into deal context and discount justification.",
+      "desired_outcome": "Rule-based sequential approval routing where approvers see a custom review screen with all relevant deal metrics, discount breakdowns, and business justification without needing a separate meeting or spreadsheet"
+    }
+  ],
+  "pains": [
+    {
+      "pain": "Every deal requires recreating line items in Excel to calculate discount totals and route approvals",
+      "trigger": "Every proposal and deal, not just closed deals. Happens 4-10 times per month. The team must prepare an Excel file ahead of a bid review meeting, populate discount figures agreed at the meeting, then distribute a summary to the appropriate executive for approval.",
+      "cost": "Hours of sales ops time per deal on manual Excel reconstruction. 4-10 deals per month affected. Approval cycle delayed by meeting scheduling and manual file preparation. Sales ops team is doing administrative work instead of process improvement.",
+      "urgency": "high",
+      "urgency_reason": "Happening on every single deal today. Prospect called it 'painful' explicitly."
+    },
+    {
+      "pain": "HubSpot provides no discount transparency: no total discount visibility at the deal level, only line-item percentage or currency discount",
+      "trigger": "HubSpot removed summary discount fields (total discount on recurring lines, total on one-time) five or six years ago. Now there is no way to see aggregate discount without exporting to Excel.",
+      "cost": "Forces every deal through the Excel sidecar process. Prevents at-a-glance approval decisions. Blocks reporting on discounting patterns across the business.",
+      "urgency": "high",
+      "urgency_reason": "This is the root cause forcing the Excel workaround on every deal"
+    },
+    {
+      "pain": "Customer-specific pricing managed in an uncontrolled, growing Excel file across ~120 customers and ~7,500 price points",
+      "trigger": "Every renewal and every new quote for an existing customer. The sales ops team described it as 'getting out of control' and 'unwieldy.' Pricing diverges further from list price each year as uplift rates vary by customer.",
+      "cost": "Risk of quoting from stale pricing. No version control. Growing maintenance burden. Failed attempts to solve this in NetSuite previously.",
+      "urgency": "high",
+      "urgency_reason": "Prospect explicitly said 'it's getting out of control now because it's growing'"
+    },
+    {
+      "pain": "Cumulative volume pricing across parent-child company hierarchies is unsolvable in current tooling",
+      "trigger": "When a subsidiary of a global enterprise customer wants to add licenses midterm. The correct volume tier depends on total licenses across all subsidiaries under the parent, but no current tool can calculate this automatically.",
+      "cost": "Multiple vendor evaluations have failed on this requirement. Manual calculation required. Risk of mispricing expansion deals. Described as 'where others have failed.'",
+      "urgency": "high",
+      "urgency_reason": "Prospect called this 'the most complex requirement we have' and noted multiple vendor failures including NetSuite"
+    },
+    {
+      "pain": "HubSpot quote templates cannot access deeply associated properties needed for service orders and change orders",
+      "trigger": "When building service orders that need to pull MSA details, billing entity information, and contract terms from associated company records. Properties are 'so far hidden with associations to associations' that they are unavailable in HubSpot's native quote templates.",
+      "cost": "Cannot generate compliant service orders or change orders from HubSpot. Limits the ability to automate document generation. Requires manual data entry or workarounds.",
+      "urgency": "medium",
+      "urgency_reason": "Blocking quote template automation but workaround exists via manual entry"
+    },
+    {
+      "pain": "No contract object in HubSpot makes renewal management and co-terming manual and fragile",
+      "trigger": "Every renewal and midterm expansion. No native way to know days remaining on a contract, co-term pricing to a contract end date, or auto-generate renewal deals with correct line items.",
+      "cost": "Renewal workflows require custom objects or manual tracking. Co-terming calculations are manual. Acknowledged as 'not pretty' even by the Quotivity team.",
+      "urgency": "medium",
+      "urgency_reason": "HubSpot contracts object is on the roadmap, so partial relief expected. But current state is painful."
+    },
+    {
+      "pain": "Approval workflows in HubSpot are buried in the workflow builder, which is a messy place to manage quoting rules",
+      "trigger": "When setting up or modifying approval rules for different discount thresholds, payment term changes, or deal types. Multiple approval paths (sequential, multi-condition) are needed but hard to build and maintain in HubSpot workflows.",
+      "cost": "Complex approval logic is fragile and hard to audit. Risk of missed approvals when multiple rules trigger simultaneously (e.g., discount threshold AND payment term change on the same deal).",
+      "urgency": "medium",
+      "urgency_reason": "Current bid-review-meeting process works but does not scale"
+    }
+  ],
+  "workflow_reality": {
+    "current_process": "Sales reps build quotes in HubSpot using list pricing for proposals or custom pricing for existing customers. For every deal, the sales ops team exports line items to Excel, recalculates discount totals, prepares a summary, presents it at a bid review meeting, gets discount figures approved, then emails the summary to the appropriate executive (VP, SVP, or CEO) based on discount level. Custom pricing for ~120 customers is maintained in a separate Excel file with ~7,500 price points. Renewals reference both HubSpot deal records and NetSuite contract data. Service orders and change orders require manual assembly of terms from multiple associated records.",
+    "tools_in_use": [
+      "HubSpot Sales Hub (CRM, deal management, basic quoting)",
+      "HubSpot Commerce Hub (recently activated, exploring quote templates)",
+      "NetSuite (ERP, contract management, billing, source of truth for pricing and cumulative license counts)",
+      "Celigo (middleware for HubSpot-to-NetSuite integration, creates sales orders in NetSuite from closed HubSpot deals)",
+      "Excel (discount calculations, custom pricing management, bid review preparation)",
+      "Microsoft Teams (approval notification target)"
+    ],
+    "team_size": 4,
+    "team_composition": "Sales ops leader, commercial contract specialist, sales ops specialist, HubSpot owner on revenue ops team",
+    "brittleness_indicators": [
+      "Every deal requires a manual Excel sidecar process — no exceptions",
+      "Custom pricing Excel file is 'getting out of control' with ~7,500 price points and growing",
+      "Multiple previous vendor evaluations have failed on the parent-child volume pricing requirement",
+      "HubSpot-NetSuite integration was extremely difficult to find expertise for ('searched the globe')",
+      "Quote templates cannot access deeply associated properties, forcing manual data entry",
+      "Bid review meetings are the only approval mechanism — no asynchronous approval workflow exists",
+      "Team has tried and failed to solve pricing management in NetSuite previously"
+    ]
+  },
+  "alternatives_and_competitors": {
+    "evaluated": [
+      {
+        "name": "At least one other CPQ vendor (unnamed)",
+        "status": "evaluated_concurrently",
+        "what_they_liked": "Unknown — the HubSpot owner sat in on a demo with the other vendor for comparison",
+        "why_still_looking": "Unknown — evaluation is concurrent with Quotivity",
+        "key_quote": "The HubSpot owner 'has also sat in with another vendor so that he can understand what's possible and what would or would not work.'"
+      },
+      {
+        "name": "HubSpot Commerce Hub (native quoting)",
+        "status": "activated_but_insufficient",
+        "what_they_liked": "Already available, no additional cost",
+        "why_still_looking": "Quote templates cannot access deeply associated properties. No discount summary rollups. No complex approval workflows. Cannot handle custom pricing or volume tiers.",
+        "key_quote": "Properties are 'so far hidden with associations to associations that they're not available within the quote template.'"
+      },
+      {
+        "name": "NetSuite (ERP quoting)",
+        "status": "tried_and_failed",
+        "what_they_liked": "Already in place for contract management and billing",
+        "why_still_looking": "Failed to implement custom pricing management. Failed on parent-child cumulative volume pricing. Not where the sales team works.",
+        "key_quote": "'We've tried everything, I think, at our company... We've got lots of experience with trying different things.'"
+      },
+      {
+        "name": "Other CPQ solutions (unnamed, historical)",
+        "status": "evaluated_and_failed",
+        "what_they_liked": "Unknown",
+        "why_still_looking": "Failed on midterm expansion pricing — offered automatic credits/refunds when customer moves volume tiers, which does not match the prospect's business model. Also failed on parent-child cumulative volume pricing.",
+        "key_quote": "'We have seen it for other solutions where there's a credit offered midterm and that is not something that we would ever do.'"
+      },
+      {
+        "name": "Excel spreadsheets",
+        "status": "current_workaround",
+        "what_they_liked": "Flexible enough to model any pricing scenario",
+        "why_still_looking": "Disconnected from HubSpot. Growing unmanageably. No version control. Every deal requires manual export and reconstruction.",
+        "key_quote": "'It's getting out of control now because it's every customer, every term, and then all the list of products.'"
+      }
+    ],
+    "current_workaround": {
+      "description": "Excel spreadsheets for discount calculations, custom pricing management, and bid review preparation. NetSuite for contract management and cumulative license tracking. Celigo middleware for HubSpot-to-NetSuite deal sync. Bid review meetings for approval routing.",
+      "adequacy": "Functional but painful and unscalable. Every deal touches the Excel sidecar. Custom pricing file growing beyond manageability. Multiple failed vendor evaluations indicate the team has been trying to solve this for a long time."
+    }
+  },
+  "quotes": [
+    {
+      "quote": "We keep having to go to Excel to figure out what's our total discount on this deal and who needs to approve it then as a result. So we're having to push everything over to Excel, recreate the lines effectively in Excel, and figure out what's our total discount.",
+      "timestamp": "0:21:43",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "excel_sidecar_process",
+      "usability": "high",
+      "usage_notes": "Captures the core pain of HubSpot's discount visibility gap forcing a manual Excel workaround on every deal. Strong for content targeting RevOps leaders struggling with HubSpot CPQ limitations."
+    },
+    {
+      "quote": "Every deal. Every deal, every proposal. So not just when a deal gets done, it's every proposal.",
+      "timestamp": "0:24:31",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "pain_frequency",
+      "usability": "high",
+      "usage_notes": "Emphasizes that the pain is not occasional — it affects 100% of quoting activity. Strong proof point for the scope of the problem."
+    },
+    {
+      "quote": "It's getting out of control now because it's every customer, every term, and then all the list of products.",
+      "timestamp": "0:29:35",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "custom_pricing_sprawl",
+      "usability": "high",
+      "usage_notes": "Vivid description of pricing management sprawl. Useful for content about outgrowing spreadsheet-based pricing and the case for CPQ price books."
+    },
+    {
+      "quote": "That's what we need. That's exactly what we want.",
+      "timestamp": "0:23:12",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "discount_visibility_validation",
+      "usability": "medium",
+      "usage_notes": "Immediate, emphatic validation when shown absolute discount fields and threshold-based approval rules. Demonstrates strong product-market fit for discount governance features."
+    },
+    {
+      "quote": "The cumulative quantity across all of the child customers, and this is where others have failed. Others have gone, but have failed.",
+      "timestamp": "0:43:26",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "parent_child_volume_pricing_failure",
+      "usability": "high",
+      "usage_notes": "Reveals that this prospect has evaluated multiple solutions and none could handle parent-child cumulative volume pricing. Strong differentiator content if Quotivity can solve this."
+    },
+    {
+      "quote": "We've tried everything, I think... We've got lots of experience with trying different things.",
+      "timestamp": "0:34:34",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "vendor_fatigue",
+      "usability": "medium",
+      "usage_notes": "Shows this is a long-suffering buyer who has attempted multiple solutions. Useful for empathy-driven content and positioning against status quo inertia."
+    },
+    {
+      "quote": "When we originally wanted to do the integration between the two, we searched the globe and we could not find anyone that had successfully done it.",
+      "timestamp": "0:15:45",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "hubspot_netsuite_integration_difficulty",
+      "usability": "high",
+      "usage_notes": "Powerful quote about the difficulty of HubSpot-NetSuite integration. Validates content positioning Quotivity's NetSuite customer expertise as a differentiator."
+    },
+    {
+      "quote": "Painful.",
+      "timestamp": "0:25:01",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "emotional_summary",
+      "usability": "medium",
+      "usage_notes": "One-word summary of the current approval process after describing the full bid review meeting workflow. Raw and honest. Good for social content hooks."
+    },
+    {
+      "quote": "Our properties are so far hidden with associations to associations that they're not available within the quote template.",
+      "timestamp": "0:49:02",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "hubspot_template_limitations",
+      "usability": "high",
+      "usage_notes": "Captures a specific HubSpot CPQ limitation that many complex orgs hit. Strong for comparison content about HubSpot native quoting vs. Quotivity."
+    },
+    {
+      "quote": "We don't offer any credit or refund at any stage.",
+      "timestamp": "0:12:57",
+      "speaker_role": "Sales Operations Leader",
+      "theme": "midterm_expansion_pricing_model",
+      "usability": "medium",
+      "usage_notes": "Defines a specific pricing model (no-credit midterm expansion) that other CPQ tools defaulted to incorrectly. Useful for content about CPQ flexibility and handling non-standard pricing models."
+    },
+    {
+      "quote": "You know what's really useful, and I've seen it on other CPQs, is like a business justification field, you know, that when it hits our desk as a first stop, we can put in any previous bid review comments.",
+      "timestamp": "0:25:55",
+      "speaker_role": "Commercial Contract Specialist",
+      "theme": "approval_context_need",
+      "usability": "medium",
+      "usage_notes": "Shows the commercial team wants structured justification data flowing through the approval process. Validates discount reason field as a must-have feature."
+    }
+  ],
+  "lexicon": {
+    "category_terms": [
+      "service order",
+      "change order",
+      "order form",
+      "bid review",
+      "custom pricing",
+      "list pricing",
+      "price book",
+      "volume pricing",
+      "co-terming",
+      "midterm expansion",
+      "renewal uplift",
+      "effective date pricing",
+      "parent company",
+      "child company",
+      "end user",
+      "bill to entity",
+      "cumulative quantity",
+      "discount summary",
+      "approval workflow",
+      "business justification"
+    ],
+    "value_language": [
+      "transparency",
+      "visibility on the discounting",
+      "at a glance",
+      "what's possible and not possible",
+      "out of the box versus custom coded",
+      "honest response",
+      "automation",
+      "not having to select the correct template"
+    ],
+    "deviant_terms": [
+      {
+        "term": "bid review meeting",
+        "meaning": "Scheduled meeting where the sales ops team presents an Excel summary of deal pricing and discount levels for approval. The entire approval workflow routes through this synchronous meeting.",
+        "frequency": "Referenced multiple times — clearly an established process term"
+      },
+      {
+        "term": "getting out of control",
+        "meaning": "Describes the custom pricing Excel spreadsheet growing to ~7,500 price points across 120 customers and multiple term years, becoming unmanageable",
+        "frequency": "Used once but captures the emotional state of the pricing management problem"
+      },
+      {
+        "term": "dumb HubSpot field",
+        "meaning": "A simple property in HubSpot that stores a value synced from NetSuite without any calculation or logic. Used to describe how cumulative license counts from NetSuite are surfaced in HubSpot.",
+        "frequency": "Used once — reveals candid technical vocabulary and pragmatic approach"
+      },
+      {
+        "term": "folder parent company",
+        "meaning": "A placeholder company record in HubSpot that serves as a container for child companies rather than representing a real billing entity. Used to organize global enterprise customers with multiple subsidiaries.",
+        "frequency": "Referenced once but describes a deliberate architectural pattern in their HubSpot setup"
+      },
+      {
+        "term": "unwieldy",
+        "meaning": "Describes the state of the custom pricing Excel file — too large and complex to manage efficiently but too critical to abandon",
+        "frequency": "Used once"
+      }
+    ]
+  },
+  "keyword_candidates": [
+    {
+      "keyword": "HubSpot CPQ discount visibility",
+      "source": "Direct pain — prospect must export every deal to Excel because HubSpot shows no aggregate discount summary. Described as affecting every single proposal.",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "Why HubSpot's native quoting hides your discount data (and how to get deal-level discount visibility without Excel)",
+      "scores": {
+        "buyer_intent": 0.95,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.80,
+        "business_priority": 0.90,
+        "mini_volume": 0.60,
+        "authority_fit": 0.85
+      },
+      "weighted_total": 0.88
+    },
+    {
+      "keyword": "HubSpot custom pricing per customer",
+      "source": "Core pain — 120 customers with negotiated pricing managed in Excel with ~7,500 price points. Prospect needs customer-specific price books in the CRM.",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to manage customer-specific negotiated pricing in HubSpot without a spreadsheet",
+      "scores": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.85,
+        "serp_weakness": 0.75,
+        "business_priority": 0.85,
+        "mini_volume": 0.65,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.83
+    },
+    {
+      "keyword": "HubSpot quote approval workflow",
+      "source": "Pain — current approval process routes through bid review meetings and manual Excel summaries. Prospect wants rule-based sequential approvals with custom review screens.",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales", "finance_controller"],
+      "content_angle": "Building multi-level quote approval workflows in HubSpot that actually show approvers what they need to see",
+      "scores": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.80,
+        "serp_weakness": 0.70,
+        "business_priority": 0.85,
+        "mini_volume": 0.70,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.82
+    },
+    {
+      "keyword": "HubSpot volume pricing tiers",
+      "source": "Complex requirement — prospect needs tiered volume pricing with midterm expansion rules (new licenses priced at combined-volume tier, no credits on existing licenses).",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to set up volume-based pricing tiers in HubSpot for SaaS companies with midterm expansion deals",
+      "scores": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.80,
+        "business_priority": 0.80,
+        "mini_volume": 0.55,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.81
+    },
+    {
+      "keyword": "HubSpot NetSuite CPQ integration",
+      "source": "Prospect uses Celigo middleware for HubSpot-NetSuite sync and described finding integration expertise as nearly impossible. Strong pain point.",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "The HubSpot-NetSuite quoting gap: why mid-market teams need a CPQ layer between CRM and ERP",
+      "scores": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.75,
+        "serp_weakness": 0.85,
+        "business_priority": 0.70,
+        "mini_volume": 0.70,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.78
+    },
+    {
+      "keyword": "CPQ for parent child company pricing",
+      "source": "Described as 'the most complex requirement' and 'where others have failed.' Needs cumulative volume across subsidiaries under a global parent.",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "Solving enterprise parent-child volume pricing in HubSpot when every other CPQ has failed",
+      "scores": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.95,
+        "serp_weakness": 0.85,
+        "business_priority": 0.75,
+        "mini_volume": 0.40,
+        "authority_fit": 0.70
+      },
+      "weighted_total": 0.78
+    },
+    {
+      "keyword": "HubSpot renewal pricing uplift",
+      "source": "Prospect needs annual uplift calculation (e.g., 4-5%) applied to customer-specific base pricing, with uplift rates varying per customer.",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to automate annual renewal price uplifts in HubSpot when every customer has different terms",
+      "scores": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.75,
+        "serp_weakness": 0.75,
+        "business_priority": 0.75,
+        "mini_volume": 0.60,
+        "authority_fit": 0.70
+      },
+      "weighted_total": 0.75
+    },
+    {
+      "keyword": "HubSpot quote template limitations",
+      "source": "Prospect found that HubSpot's native quote templates cannot access deeply associated properties. Described properties as 'hidden with associations to associations.'",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "The hidden limitation of HubSpot quote templates (and what to do when your properties are too deeply associated)",
+      "scores": {
+        "buyer_intent": 0.75,
+        "differentiator_fit": 0.80,
+        "serp_weakness": 0.70,
+        "business_priority": 0.65,
+        "mini_volume": 0.75,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.75
+    },
+    {
+      "keyword": "SaaS co-terming pricing HubSpot",
+      "source": "Prospect needs prorated pricing calculations for midterm expansions co-termed to existing contract end dates.",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to handle co-terming and prorated midterm expansions in HubSpot without a contracts object",
+      "scores": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.75,
+        "serp_weakness": 0.80,
+        "business_priority": 0.65,
+        "mini_volume": 0.50,
+        "authority_fit": 0.65
+      },
+      "weighted_total": 0.73
+    },
+    {
+      "keyword": "HubSpot CPQ alternative",
+      "source": "Prospect has activated HubSpot Commerce Hub but found it insufficient. Actively evaluating Quotivity and at least one other vendor.",
+      "intent": "comparison_shopping",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "When HubSpot's native CPQ hits a wall: what mid-market SaaS companies need from a HubSpot quoting upgrade",
+      "scores": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.70,
+        "serp_weakness": 0.55,
+        "business_priority": 0.70,
+        "mini_volume": 0.80,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.74
+    }
+  ]
+}

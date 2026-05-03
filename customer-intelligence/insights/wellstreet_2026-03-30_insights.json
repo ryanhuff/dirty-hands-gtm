@@ -1,0 +1,358 @@
+{
+  "call_meta": {
+    "company": "WellStreet",
+    "persona": "RevOps Leader",
+    "industry": "Healthcare (occupational health / workers compensation)",
+    "company_size": "Small (6 sales reps, 4 states, growth plan to 20 states)",
+    "deal_stage": "discovery",
+    "call_date": "2026-03-30",
+    "participants": [
+      "Bryan Roy - Solutions Architect, Quotivity",
+      "Gabriel Bennett - Operations/RevOps Lead, WellStreet"
+    ]
+  },
+  "jtbd": [
+    {
+      "job": "Generate client-facing quotes that selectively show pricing (out-of-pocket items visible, internal revenue estimates hidden)",
+      "desired_outcome": "A single quoting flow that produces client-safe documents without manual redaction or dual systems",
+      "current_approach": "Add line items in HubSpot deal, then separately build a DocuSign document with manually typed pricing and service details"
+    },
+    {
+      "job": "Reduce steps in the deal-close workflow so reps can sell more",
+      "desired_outcome": "Save hours per week currently spent on manual data entry across HubSpot and DocuSign",
+      "current_approach": "Reps enter line items in HubSpot, then re-enter overlapping data in DocuSign templates, then return to HubSpot to close the deal"
+    },
+    {
+      "job": "Route quotes through the correct approval and signature workflow based on deal value",
+      "desired_outcome": "Quotes under $10K go out without signature; quotes at or above $10K automatically require client e-signature",
+      "current_approach": "Manual selection of the correct DocuSign template version depending on deal value threshold"
+    },
+    {
+      "job": "Keep quoting and onboarding integrated inside HubSpot rather than adding external tools",
+      "desired_outcome": "Reduce tool sprawl and get more return from existing HubSpot investment",
+      "current_approach": "HubSpot for CRM and deal tracking, DocuSign for quotes and onboarding documents, manual bridging between the two"
+    }
+  ],
+  "pains": [
+    {
+      "pain": "HubSpot native quotes cannot show/hide specific columns or line items per audience (internal vs. client-facing)",
+      "trigger": "Workers comp pricing is state-set and cannot be disclosed to clients, but HubSpot forces all line item data to be visible on quotes",
+      "cost": "Reps must maintain a parallel DocuSign workflow to control what clients see, doubling quoting effort",
+      "urgency": "high",
+      "verbatim": "We would love to use HubSpot's native quote program. It does not work the way we want it to."
+    },
+    {
+      "pain": "Dual data entry across HubSpot and DocuSign for every deal",
+      "trigger": "Each closed deal requires line items in HubSpot AND manual typing of service details, pricing, and client info into a DocuSign template",
+      "cost": "Hours per week of duplicated administrative work across 6 reps that could be spent selling",
+      "urgency": "high",
+      "verbatim": "If I can save an hour, I can give an hour somewhere else."
+    },
+    {
+      "pain": "No conditional logic for signature requirements based on deal value",
+      "trigger": "Deals over $10K require a signed acknowledgment; deals under $10K do not. This routing is manual.",
+      "cost": "Risk of sending the wrong template version and compliance exposure on larger deals",
+      "urgency": "medium",
+      "verbatim": "A signature is not required unless it's over a threshold of $10,000. So... we have a version of this that gets sent out to the company that they sign and acknowledge."
+    },
+    {
+      "pain": "HubSpot upsells required features behind expensive add-ons (Ops Hub)",
+      "trigger": "Attempting to customize quote behavior in HubSpot leads to upgrade pressure for Ops Hub or developer licenses",
+      "cost": "Either pay for expensive HubSpot tiers or accept limited native functionality",
+      "urgency": "medium",
+      "verbatim": "HubSpot wants you to upgrade every single thing that you do to try to use a feature... there's a developer license that we might be able to purchase, but it's extremely pricey."
+    },
+    {
+      "pain": "Quoting process has grown organically for 2.5 years with bolt-on fixes rather than a systematic approach",
+      "trigger": "Company growth from founding through 4 states with plans for 20 states",
+      "cost": "Process brittleness that will compound as the company scales to more states and reps",
+      "urgency": "medium",
+      "verbatim": "We've had this process probably just adding on pieces to it over the last two and a half years or so."
+    },
+    {
+      "pain": "Cannot pull custom properties into HubSpot quote templates",
+      "trigger": "Need to show state-specific fee schedule references and custom columns on client-facing documents",
+      "cost": "Forces use of external document tools (DocuSign) instead of native HubSpot quotes",
+      "urgency": "high",
+      "verbatim": "HubSpot doesn't allow you to pull any custom properties into a template."
+    }
+  ],
+  "workflow_reality": {
+    "current_process": "1. Sales rep conducts discovery call and estimates annual visit volume using internal formula. 2. Rep adds state-specific line items (drug screens, breath alcohol tests, work comp visits) from HubSpot product library to the deal. 3. Rep separately opens DocuSign and manually types service details, pricing, client info, and internal protocols into a template. 4. If deal >= $10K, a signature-required version is sent; if < $10K, a simpler version is sent. 5. DocuSign document goes to billing and client support for EMR setup. 6. Rep returns to HubSpot to mark deal as closed-won.",
+    "tools_used": [
+      "HubSpot Sales Hub Enterprise",
+      "HubSpot Service Hub Professional",
+      "DocuSign",
+      "HubSpot product library (state-specific SKUs)"
+    ],
+    "brittleness": "Process relies on manual bridging between HubSpot and DocuSign. No automation on template selection or signature routing. Accuracy of quoting depends on reps manually selecting correct state-specific SKUs. System was built incrementally over 2.5 years. Will break down further as company expands from 4 to 20 states.",
+    "workarounds": [
+      "Using DocuSign as a parallel quoting system because HubSpot quotes cannot hide line items",
+      "Manually selecting which DocuSign template version to send based on deal value threshold",
+      "Showing 'GA fee schedule' as text instead of a price for work comp line items since actual pricing cannot be disclosed",
+      "Re-entering deal data from HubSpot into DocuSign by hand for every deal"
+    ]
+  },
+  "alternatives_and_competitors": [
+    {
+      "name": "HubSpot CPQ (native quotes)",
+      "type": "status_quo",
+      "sentiment": "negative",
+      "context": "Already on Sales Hub Enterprise but native quotes cannot hide columns, pull custom properties into templates, or conditionally route based on deal value. Prospect explicitly said 'It does not work the way we want it to.'",
+      "known_competitor": true
+    },
+    {
+      "name": "DocuSign",
+      "type": "adjacent_tool",
+      "sentiment": "mixed",
+      "context": "Currently used as the quoting document layer. Familiar to clients and works, but creates dual data entry and manual process overhead. Estimated ~$100/month per user ($1,200/year). Prospect sees it as replaceable if Quotivity delivers equivalent document experience.",
+      "known_competitor": false
+    },
+    {
+      "name": "HubSpot Operations Hub",
+      "type": "adjacent_tool",
+      "sentiment": "negative",
+      "context": "Prospect identified Ops Hub as a potential path to customization but rejected it due to cost. 'We could probably customize it that way, but we don't want to.'",
+      "known_competitor": false
+    }
+  ],
+  "quotes": [
+    {
+      "text": "We would love to use HubSpot's native quote program. It does not work the way we want it to.",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Explaining why they cannot use HubSpot's built-in quoting despite being on Sales Hub Enterprise",
+      "themes": ["HubSpot limitations", "quote customization"]
+    },
+    {
+      "text": "HubSpot wants you to upgrade every single thing that you do to try to use a feature, which is great. We're on sales enterprise, which is also awesome... but there's some things that we just can't do.",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Frustration with HubSpot's pricing model gating needed functionality",
+      "themes": ["HubSpot frustration", "feature gating", "cost sensitivity"]
+    },
+    {
+      "text": "If I can save an hour, I can give an hour somewhere else.",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Articulating the value of time savings from eliminating manual quoting steps",
+      "themes": ["rep productivity", "time savings", "efficiency"]
+    },
+    {
+      "text": "Anything could be better than this. I just... I'm trying to remove as many steps as possible.",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Describing current DocuSign-based quoting process with manual data entry",
+      "themes": ["process frustration", "manual work", "workflow simplification"]
+    },
+    {
+      "text": "We've had this process probably just adding on pieces to it over the last two and a half years or so.",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Acknowledging that the current quoting workflow is a patchwork system built incrementally",
+      "themes": ["technical debt", "process evolution", "scaling concerns"]
+    },
+    {
+      "text": "Where is the cost justified? And that's what I have to look at.",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Evaluating whether to invest in a CPQ platform vs. continuing with current process",
+      "themes": ["ROI justification", "cost sensitivity", "buying criteria"]
+    },
+    {
+      "text": "One deal won't cover the price of it. It just has to be a hard savings there, not an opportunity savings.",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Pushing back on soft ROI arguments; wants concrete, measurable cost reduction",
+      "themes": ["hard ROI", "cost justification", "buying criteria"]
+    },
+    {
+      "text": "A signature is not required unless it's over a threshold of $10,000.",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Describing conditional signature workflow that must be handled manually today",
+      "themes": ["conditional logic", "signature routing", "compliance"]
+    },
+    {
+      "text": "We don't want them to see this part, and we don't want them to see this part. How do we make that happen?",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Core problem statement: need to hide internal revenue estimates and deal amounts from client-facing quotes",
+      "themes": ["selective visibility", "quote customization", "client communication"]
+    },
+    {
+      "text": "Does it... where is the cost justified? Is it apples to apples for what we're paying for a license in DocuSign?",
+      "speaker": "Operations/RevOps Lead",
+      "context": "Comparing Quotivity cost against existing DocuSign spend",
+      "themes": ["cost comparison", "tool consolidation", "ROI"]
+    }
+  ],
+  "lexicon": {
+    "category_terms": [
+      "quote program",
+      "quote template",
+      "line items",
+      "product library",
+      "price book",
+      "SKU",
+      "fee schedule",
+      "deal amount",
+      "contract value",
+      "onboarding",
+      "client support",
+      "protocols"
+    ],
+    "value_language": [
+      "remove steps",
+      "save an hour",
+      "integrated",
+      "hard savings",
+      "cost justified",
+      "share the right information",
+      "not feeling confused",
+      "get this to the right people every time",
+      "sell more"
+    ],
+    "deviant_terms": [
+      "fee schedule (state-set pricing that cannot be disclosed)",
+      "CPT codes (medical billing codes driving variable pricing)",
+      "actualization (their term for quote-to-actual accuracy measurement)",
+      "protocols (client-specific internal setup rules bundled into quoting)",
+      "EMR (electronic medical records system, downstream from quoting)",
+      "suppress the client side (controlling what clients see in quote links)"
+    ]
+  },
+  "keyword_candidates": [
+    {
+      "keyword": "hubspot quote hide line items",
+      "type": "jtbd",
+      "source_context": "Prospect's core problem: needing to show some line items to clients while hiding internal revenue estimates on HubSpot quotes",
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 7,
+        "business_priority": 8,
+        "mini_volume": 6,
+        "authority_fit": 9,
+        "weighted_total": 8.35
+      }
+    },
+    {
+      "keyword": "hubspot quote custom columns",
+      "type": "jtbd",
+      "source_context": "Prospect needs to show different columns to clients vs. internal view, which HubSpot native quotes do not support",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 9,
+        "serp_weakness": 7,
+        "business_priority": 7,
+        "mini_volume": 6,
+        "authority_fit": 9,
+        "weighted_total": 8.05
+      }
+    },
+    {
+      "keyword": "hubspot cpq limitations",
+      "type": "category",
+      "source_context": "Prospect explicitly stated HubSpot native quoting 'does not work the way we want it to' despite being on Sales Enterprise",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 6,
+        "business_priority": 8,
+        "mini_volume": 7,
+        "authority_fit": 9,
+        "weighted_total": 7.90
+      }
+    },
+    {
+      "keyword": "hubspot quote template customization",
+      "type": "jtbd",
+      "source_context": "Prospect cannot pull custom properties into HubSpot quote templates, forcing use of DocuSign as workaround",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 6,
+        "business_priority": 7,
+        "mini_volume": 7,
+        "authority_fit": 9,
+        "weighted_total": 7.75
+      }
+    },
+    {
+      "keyword": "hubspot docusign replacement quoting",
+      "type": "comparison",
+      "source_context": "Prospect using DocuSign as parallel quoting tool and evaluating whether Quotivity can replace it within HubSpot",
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 7,
+        "serp_weakness": 8,
+        "business_priority": 6,
+        "mini_volume": 5,
+        "authority_fit": 8,
+        "weighted_total": 7.75
+      }
+    },
+    {
+      "keyword": "hubspot conditional quote routing",
+      "type": "jtbd",
+      "source_context": "Prospect needs quotes routed to different templates (signature vs. no-signature) based on deal value threshold",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 8,
+        "serp_weakness": 8,
+        "business_priority": 6,
+        "mini_volume": 5,
+        "authority_fit": 8,
+        "weighted_total": 7.25
+      }
+    },
+    {
+      "keyword": "hubspot quoting for healthcare",
+      "type": "long_tail",
+      "source_context": "Healthcare/occupational health company with state-regulated pricing, PHI considerations, and complex fee schedules",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 6,
+        "serp_weakness": 8,
+        "business_priority": 5,
+        "mini_volume": 4,
+        "authority_fit": 7,
+        "weighted_total": 6.60
+      }
+    },
+    {
+      "keyword": "cpq for workers compensation",
+      "type": "long_tail",
+      "source_context": "Workers comp pricing is state-set with variable CPT codes, requiring specialized quoting that shows fee schedule references instead of prices",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 5,
+        "serp_weakness": 9,
+        "business_priority": 4,
+        "mini_volume": 3,
+        "authority_fit": 5,
+        "weighted_total": 6.10
+      }
+    },
+    {
+      "keyword": "hubspot quote esignature rules",
+      "type": "jtbd",
+      "source_context": "Prospect needs automatic e-signature requirement based on deal value exceeding $10K threshold",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 7,
+        "serp_weakness": 7,
+        "business_priority": 5,
+        "mini_volume": 4,
+        "authority_fit": 7,
+        "weighted_total": 6.50
+      }
+    },
+    {
+      "keyword": "hubspot multi-state price books",
+      "type": "jtbd",
+      "source_context": "Company operates across 4 states with state-specific product libraries and pricing; plans to expand to 20 states",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 8,
+        "serp_weakness": 7,
+        "business_priority": 5,
+        "mini_volume": 4,
+        "authority_fit": 8,
+        "weighted_total": 6.85
+      }
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "call_meta": {
+    "call_id": "transcript-2026-05-01-air-cleaning-specialists",
+    "date": "2026-05-01",
+    "duration_minutes": 40,
+    "prospect_name": "Casey Thurman",
+    "prospect_title": "RevOps / Sales Operations Leader",
+    "company": "Air Cleaning Specialists",
+    "employee_count_range": "mid-market",
+    "industry": "Manufacturing (HVAC / air cleaning equipment)",
+    "tech_stack_mentioned": ["HubSpot CRM", "NetSuite (ERP, mid-implementation)", "BigCommerce (evaluated, rejected)", "Custom quoting tool (legacy, built in-house)"],
+    "persona_match": "revops_leader",
+    "estimated_deal_stage": "re-evaluation_to_active_trial",
+    "next_steps": [
+      "Install Quotivity integration in HubSpot sandbox",
+      "Demo scheduled for May 13th at 2:00 PM Central to show new bundle features",
+      "Send onboarding overview doc with implementation prerequisites",
+      "Decision on CPQ tool path by end of May"
+    ]
+  },
+  "jtbd": [
+    {
+      "job": "Replace aging custom quoting tool before ERP go-live without disrupting sales operations",
+      "context": "Company is mid-ERP implementation (NetSuite, targeting August completion). The legacy quoting tool was built in-house by their COO years ago and they have no intention of carrying it forward. CPQ must be selected by end of May and rolled out before ERP goes live.",
+      "desired_outcome": "CPQ tool selected, configured, tested, and adopted by sales team before August ERP rollout"
+    },
+    {
+      "job": "Configure and quote multi-product bundles with individually adjustable sub-items",
+      "context": "Their core quoting need involves configurable bundles (especially ducting bundles) where products can be added/removed and quantities adjusted at the sub-item level. They describe this as 'bundle in name, but BOM in reality.' Less than 10 items per bundle typically.",
+      "desired_outcome": "Sales reps can build configurable bundles with dynamic sub-items, adjust individual quantities, and produce accurate quotes quickly"
+    },
+    {
+      "job": "Consolidate quoting into a tool that integrates with HubSpot CRM and complements NetSuite ERP",
+      "context": "They have product data in NetSuite (PIM), customer data in HubSpot, and need a quoting tool that bridges both. They initially tried to solve quoting and e-commerce in one platform (BigCommerce) but it failed. Now looking for the right layer-on tool for HubSpot.",
+      "desired_outcome": "Single quoting tool that lives in HubSpot, syncs with NetSuite product data, and handles their configure-to-order complexity"
+    }
+  ],
+  "pains": [
+    {
+      "pain": "Legacy custom quoting tool is aging and must be retired before ERP transition",
+      "trigger": "ERP implementation (NetSuite) targeting August completion creates a hard deadline. The custom tool cannot be carried forward, and the CPQ replacement must be rolled out and adopted before the ERP goes live.",
+      "cost": "Entire quoting workflow at risk if not replaced in time. ERP rollout timeline could slip. Sales team faces disruption if forced to adopt both a new ERP and new quoting tool simultaneously.",
+      "urgency": "high",
+      "urgency_reason": "Decision needed by end of May 2026. Implementation must complete before August ERP go-live."
+    },
+    {
+      "pain": "No CPQ tool evaluated can match their custom tool's configurable bundle capabilities",
+      "trigger": "After evaluating BigCommerce, NetSuite CPQ, and HubSpot's bundling beta, none could handle configurable bundles with individual sub-item quantity management and add/remove flexibility. The prospect described feeling like 'a snowflake.'",
+      "cost": "Months of evaluation time spent on BigCommerce (most of the time since last conversation). Delayed CPQ decision compresses implementation timeline. Leadership frustrated by lack of options.",
+      "urgency": "high",
+      "urgency_reason": "Every week of delayed decision shortens the implementation window before August deadline"
+    },
+    {
+      "pain": "HubSpot's native bundling beta is stalled and cannot meet their timeline",
+      "trigger": "They got into a private beta for HubSpot's bundling tool, but the tool lost its developer, is behind schedule, and full functionality is not expected until Q3. The prospect needs to move faster than that.",
+      "cost": "Waiting for HubSpot means missing the August ERP deadline. The bundle line item display (parent with indented sub-items) they need is not functional in the beta.",
+      "urgency": "high",
+      "urgency_reason": "HubSpot's Q3 timeline is too late for their August ERP go-live"
+    },
+    {
+      "pain": "NetSuite CPQ was too complex for configuration and setup",
+      "trigger": "Evaluated NetSuite's native CPQ during the tool selection process. Complexity of configuration, setup, and brand switching was a turnoff for leadership.",
+      "cost": "Evaluation time spent. Leadership lost confidence in native ERP quoting as a viable path.",
+      "urgency": "low",
+      "urgency_reason": "Already eliminated as an option"
+    },
+    {
+      "pain": "BigCommerce CPQ-like functionality could not handle configurable bundles",
+      "trigger": "Spent significant time trying to combine e-commerce and quoting needs into one platform. BigCommerce could not manage individual sub-item quantities or add/remove items from bundles.",
+      "cost": "Most of the evaluation period (roughly two months) spent pursuing a dead end. Delayed the overall CPQ decision.",
+      "urgency": "low",
+      "urgency_reason": "Already eliminated as an option"
+    },
+    {
+      "pain": "Tight implementation window creates risk of sales team disruption",
+      "trigger": "With decision needed by end of May and rollout required before August, the six-week implementation timeline means starting by mid-May at the latest.",
+      "cost": "If implementation slips, sales team faces simultaneous CPQ and ERP rollout. Training and adoption quality degrades under time pressure.",
+      "urgency": "high",
+      "urgency_reason": "Six-week implementation window starting mid-May to hit August deadline"
+    }
+  ],
+  "workflow_reality": {
+    "current_process": "Sales team uses a custom-built quoting tool developed by their COO. The tool handles configurable bundles (especially ducting bundles) where sub-items can be added/removed and quantities adjusted individually. Bundles are typically less than 10 items. The tool was considered elite for its time but has aged. Company is transitioning to NetSuite ERP and HubSpot CRM, and the custom tool will not carry forward.",
+    "tools_in_use": [
+      "HubSpot CRM (fully implemented and working)",
+      "NetSuite ERP (about one-third through implementation, targeting August completion)",
+      "Custom quoting tool (legacy, built in-house, slated for retirement)",
+      "HubSpot Breeze AI tools (actively using)",
+      "Custom e-commerce platform (also home-brew, also needs replacement)"
+    ],
+    "team_size": null,
+    "brittleness_indicators": [
+      "Custom tool built by COO who is not a dedicated developer, creating maintenance and knowledge concentration risk",
+      "Both the quoting tool and e-commerce platform are home-brew and need replacement simultaneously",
+      "ERP transition in progress adds complexity to any quoting tool change",
+      "No off-the-shelf tool has replicated the custom tool's configurable bundle capabilities, creating a uniqueness trap"
+    ]
+  },
+  "alternatives_and_competitors": {
+    "evaluated": [
+      {
+        "name": "BigCommerce",
+        "status": "evaluated_and_rejected",
+        "what_they_liked": "Could potentially consolidate e-commerce and quoting into one product database. CPQ-like functionality was promising.",
+        "why_they_passed": "Could not manage individual sub-item quantities within bundles. Could not add/remove items from bundles dynamically. Not a full CPQ.",
+        "key_quote": "The ability to manage the quantities of the items in your bundle individually on those sub-items, and the ability to add and remove those items to modify the bundle, just were not there."
+      },
+      {
+        "name": "NetSuite CPQ",
+        "status": "evaluated_and_rejected",
+        "what_they_liked": "Native to their incoming ERP. Would not require additional integration.",
+        "why_they_passed": "Too much complexity in configuration and setup. Bouncing between brands was a turnoff for leadership.",
+        "key_quote": "There's just too much complexity to their tool from a configuration and setup standpoint."
+      },
+      {
+        "name": "HubSpot CPQ (Bundling Beta)",
+        "status": "in_private_beta_but_stalled",
+        "what_they_liked": "Product catalog with bundles gets close to what they need. The planned display of parent items with indented sub-items is what they want.",
+        "why_they_passed": "Tool lost its developer and is behind schedule. Full functionality not expected until Q3. The line item display for bundles does not work yet. Cannot wait.",
+        "key_quote": "Their ability to get there just isn't there at the moment, and the clock's ticking for us."
+      }
+    ],
+    "current_workaround": {
+      "description": "Custom-built quoting tool developed internally by their COO. Handles configurable bundles with dynamic sub-item management. Being retired as part of ERP transition.",
+      "adequacy": "Functionally capable but aging. Was elite for its time. Cannot be carried forward into the new tech stack (HubSpot + NetSuite)."
+    }
+  },
+  "quotes": [
+    {
+      "quote": "We feel a little bit like a snowflake because our custom tool has some capabilities that nobody else has been able to show us.",
+      "timestamp": "00:13:24",
+      "speaker_role": "RevOps Leader",
+      "theme": "configurable_bundle_complexity",
+      "usability": "high",
+      "usage_notes": "Captures the manufacturing buyer's frustration with CPQ tools that cannot handle configure-to-order bundles. Strong for content targeting manufacturers who feel their quoting needs are too unique for off-the-shelf tools."
+    },
+    {
+      "quote": "It's kind of bundle in name, but really BOM in reality.",
+      "timestamp": "00:16:41",
+      "speaker_role": "RevOps Leader",
+      "theme": "bundle_vs_bom_distinction",
+      "usability": "high",
+      "usage_notes": "Precise language that distinguishes static product bundles from configurable bills of material. Captures the exact gap most CPQ tools fail to address for manufacturers. Strong keyword signal for configure-to-order content."
+    },
+    {
+      "quote": "The ability to manage the quantities of the items in your bundle individually on those sub-items, and the ability to add and remove those items to modify the bundle, just were not there.",
+      "timestamp": "00:36:05",
+      "speaker_role": "RevOps Leader",
+      "theme": "configurable_bundle_requirements",
+      "usability": "high",
+      "usage_notes": "Specific articulation of what configurable bundles require: individual sub-item quantity control and dynamic add/remove. Directly maps to Quotivity's bundle configurator roadmap. Strong for feature-benefit content."
+    },
+    {
+      "quote": "Their ability to get there just isn't there at the moment, and the clock's ticking for us.",
+      "timestamp": "00:12:39",
+      "speaker_role": "RevOps Leader",
+      "theme": "hubspot_cpq_timeline_gap",
+      "usability": "high",
+      "usage_notes": "Captures the urgency gap between HubSpot's development timeline and the buyer's implementation deadline. Strong for competitive positioning content about HubSpot CPQ limitations."
+    },
+    {
+      "quote": "There's just too much complexity to their tool from a configuration and setup standpoint.",
+      "timestamp": "00:06:25",
+      "speaker_role": "RevOps Leader",
+      "theme": "erp_cpq_complexity",
+      "usability": "medium",
+      "usage_notes": "Validates the ERP quoting weakness: powerful but too complex to configure. Useful for content positioning Quotivity against NetSuite CPQ and other ERP-based quoting."
+    },
+    {
+      "quote": "We've got a tight window here, and that's why it's becoming urgent.",
+      "timestamp": "00:30:53",
+      "speaker_role": "RevOps Leader",
+      "theme": "erp_driven_urgency",
+      "usability": "medium",
+      "usage_notes": "Illustrates how ERP implementations create forcing functions for CPQ decisions. Useful for content about implementation timing and the ERP-to-CPQ sequencing problem."
+    },
+    {
+      "quote": "We really got fixated on the idea that in one product database I can handle my e-commerce store and my quoting tool and do the configuration, and we tried really hard to make that work.",
+      "timestamp": "00:35:10",
+      "speaker_role": "RevOps Leader",
+      "theme": "unified_platform_desire",
+      "usability": "medium",
+      "usage_notes": "Shows the allure of consolidation and why buyers pursue it even when it fails. Useful for content about the right architecture for manufacturing quoting: ERP for fulfillment, CRM for sales, CPQ for quoting."
+    },
+    {
+      "quote": "We do not have any intention of carrying forward our custom tool.",
+      "timestamp": "00:13:13",
+      "speaker_role": "RevOps Leader",
+      "theme": "legacy_tool_retirement",
+      "usability": "medium",
+      "usage_notes": "Clean statement of intent to move off legacy systems. Useful for content targeting companies replacing home-built quoting tools."
+    }
+  ],
+  "lexicon": {
+    "category_terms": [
+      "CPQ tool",
+      "quoting tool",
+      "bundling",
+      "product catalog",
+      "product configuration",
+      "configure-to-order",
+      "line item display",
+      "ERP implementation",
+      "product database",
+      "template designer",
+      "rules engine",
+      "compatibility rules"
+    ],
+    "value_language": [
+      "fast and accurate",
+      "constrain what your sales reps can do",
+      "guide your sales reps through the process",
+      "quickly quote things",
+      "roll it out to the sales team",
+      "tech forward"
+    ],
+    "deviant_terms": [
+      {
+        "term": "bundle in name, but BOM in reality",
+        "meaning": "Their bundles are not fixed product groupings but configurable bills of material where components can be added, removed, and individually adjusted. This distinction is core to their quoting complexity.",
+        "frequency": "used once but clearly the central concept of their requirement"
+      },
+      {
+        "term": "snowflake",
+        "meaning": "Self-description for feeling like their quoting needs are uniquely complex and unserved by available tools. Reveals both frustration and a degree of pride in their operational sophistication.",
+        "frequency": "used once"
+      },
+      {
+        "term": "layer on tool",
+        "meaning": "Their category for tools that augment an existing platform (HubSpot, NetSuite) rather than replacing it. They evaluated tools in three buckets: layer-on, native, and third-party.",
+        "frequency": "used once but represents their mental model for categorizing solutions"
+      },
+      {
+        "term": "the clock's ticking",
+        "meaning": "Shorthand for the ERP-driven deadline pressure. The CPQ decision is coupled to the NetSuite go-live and cannot slip.",
+        "frequency": "used once"
+      }
+    ]
+  },
+  "keyword_candidates": [
+    {
+      "keyword": "CPQ for manufacturers HubSpot",
+      "source": "direct pain: manufacturing company on HubSpot needs configurable quoting that lives inside the CRM",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "Why manufacturers on HubSpot need a CPQ that handles configurable bundles natively in their CRM",
+      "scoring": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 7,
+        "business_priority": 9,
+        "mini_volume": 6,
+        "authority_fit": 8
+      },
+      "weighted_total": 8.35
+    },
+    {
+      "keyword": "configurable product bundles CPQ",
+      "source": "core requirement: bundles where sub-items can be added/removed with individual quantity control (BOM-style)",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "Static bundles vs. configurable BOMs: what manufacturers actually need from CPQ bundle support",
+      "scoring": {
+        "buyer_intent": 9,
+        "differentiator_fit": 10,
+        "serp_weakness": 7,
+        "business_priority": 8,
+        "mini_volume": 5,
+        "authority_fit": 8
+      },
+      "weighted_total": 8.25
+    },
+    {
+      "keyword": "HubSpot CPQ bundling limitations",
+      "source": "prospect is on HubSpot bundling private beta that is stalled and cannot meet their timeline",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "What HubSpot's bundling beta can and cannot do today, and what to use when you need more",
+      "scoring": {
+        "buyer_intent": 8,
+        "differentiator_fit": 9,
+        "serp_weakness": 8,
+        "business_priority": 8,
+        "mini_volume": 6,
+        "authority_fit": 9
+      },
+      "weighted_total": 8.20
+    },
+    {
+      "keyword": "replace custom quoting tool HubSpot",
+      "source": "prospect retiring a legacy in-house quoting tool and needs a replacement that lives in HubSpot",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "How to migrate from a custom-built quoting tool to a HubSpot-native CPQ without disrupting your sales team",
+      "scoring": {
+        "buyer_intent": 9,
+        "differentiator_fit": 8,
+        "serp_weakness": 7,
+        "business_priority": 7,
+        "mini_volume": 5,
+        "authority_fit": 8
+      },
+      "weighted_total": 7.80
+    },
+    {
+      "keyword": "NetSuite CPQ alternative",
+      "source": "prospect rejected NetSuite CPQ for being too complex to configure and set up",
+      "intent": "comparison_shopping",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "When NetSuite CPQ is too complex: simpler quoting options for manufacturers on HubSpot + NetSuite",
+      "scoring": {
+        "buyer_intent": 8,
+        "differentiator_fit": 7,
+        "serp_weakness": 7,
+        "business_priority": 6,
+        "mini_volume": 6,
+        "authority_fit": 7
+      },
+      "weighted_total": 7.20
+    },
+    {
+      "keyword": "CPQ implementation before ERP go-live",
+      "source": "prospect must have CPQ selected, configured, and adopted before August ERP rollout",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "Sequencing CPQ and ERP rollouts: why your quoting tool needs to go live first",
+      "scoring": {
+        "buyer_intent": 7,
+        "differentiator_fit": 6,
+        "serp_weakness": 8,
+        "business_priority": 8,
+        "mini_volume": 4,
+        "authority_fit": 7
+      },
+      "weighted_total": 6.85
+    },
+    {
+      "keyword": "configure-to-order quoting software",
+      "source": "prospect's bundles are configurable BOMs with dynamic sub-item management, core to manufacturing quoting",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "Configure-to-order quoting: what manufacturers need beyond static product bundles",
+      "scoring": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 6,
+        "business_priority": 6,
+        "mini_volume": 5,
+        "authority_fit": 7
+      },
+      "weighted_total": 7.10
+    },
+    {
+      "keyword": "HubSpot quoting for manufacturing",
+      "source": "manufacturing company fully committed to HubSpot CRM looking for quoting that handles their complexity",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "How manufacturing companies use HubSpot for quoting without outgrowing it",
+      "scoring": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 7,
+        "business_priority": 7,
+        "mini_volume": 5,
+        "authority_fit": 8
+      },
+      "weighted_total": 7.55
+    }
+  ]
+}

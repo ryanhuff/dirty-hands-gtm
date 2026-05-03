@@ -1,0 +1,479 @@
+{
+  "call_meta": {
+    "call_id": "transcript-2026-04-10-moleaer",
+    "date": "2026-04-10",
+    "duration_minutes": 73,
+    "prospect_name": "Christian Ference",
+    "prospect_title": "Head of Product",
+    "company": "Moleaer",
+    "employee_count_estimate": "mid-market",
+    "industry": "Manufacturing / Water Treatment",
+    "sales_team_size": 20,
+    "quotes_per_year": 600,
+    "persona_match": "revops_leader",
+    "secondary_persona_match": "vp_sales",
+    "estimated_deal_stage": "discovery_to_evaluation",
+    "deal_blockers": [
+      "Price sensitivity: $20K annual is 2x their comfort zone (~$10-12K target)",
+      "Per-user pricing model scales too quickly for their 20-rep team",
+      "Need to build internal business case with measurable ROI before purchase",
+      "Broad organizational buy-in required including sales team validation",
+      "Previous failed CPQ implementation creates internal skepticism"
+    ],
+    "next_steps": [
+      "Daniel to check internally on pricing flexibility toward $10-12K range",
+      "Prospect to identify 4-5 needle-moving priorities that Quotivity must demonstrate",
+      "Proof of concept demo using one real product and price list",
+      "Follow-up scheduled for week of April 20"
+    ],
+    "attendees": [
+      {"role": "Head of Product", "company": "Moleaer"},
+      {"role": "RevOps / Sales Operations", "company": "Moleaer"},
+      {"role": "Sales Lead", "company": "Quotivity"}
+    ]
+  },
+  "jtbd": [
+    {
+      "job": "Consolidate quoting into one platform so reps stop jumping between HubSpot, Excel spreadsheets, and institutional knowledge",
+      "context": "20 salespeople generating 600 quotes/year. Pricing for leases, sales, and rentals lives in separate Excel calculators outside HubSpot. Reps need institutional knowledge to quote correctly because business rules are not encoded anywhere.",
+      "desired_outcome": "Single quoting workflow inside HubSpot where reps select product, application, deal structure, and pricing auto-populates without manual lookups"
+    },
+    {
+      "job": "Support multiple pricing structures (sale, lease, rental) across different customer segments and geographies without SKU explosion",
+      "context": "Same product sold across multiple markets at different price points currently requires duplicate SKUs in HubSpot. Over 100 SKUs and growing. Each new pricing variant multiplies the SKU management problem and breaks ERP alignment.",
+      "desired_outcome": "Price book structure where one SKU can carry multiple price points by segment, geography, and deal structure without duplicating products"
+    },
+    {
+      "job": "Encode product configuration rules so new reps can quote accurately without tribal knowledge",
+      "context": "Products are market-agnostic (same hardware sold to car washes, greenhouses, industrial applications) but each application requires specific add-on kits. Veteran reps know which kit goes with which application. New reps do not.",
+      "desired_outcome": "Guided selling experience where selecting an application auto-suggests or auto-adds the correct kit and accessories"
+    },
+    {
+      "job": "Gain control over quote templates without fighting HubSpot's markup language",
+      "context": "8+ quote templates needed for subsidiary/language/terms combinations. Cannot rename fields (e.g., 'Comments to buyer' should be 'Project application'). Cannot add free text fields. Cannot conditionally show/hide sections. Attempted to customize via HubSpot design manager and failed.",
+      "desired_outcome": "No-code template builder where fields can be renamed, sections toggled by rules, and terms swapped without changing the entire template"
+    }
+  ],
+  "pains": [
+    {
+      "pain": "SKU explosion from multi-market, multi-segment pricing in HubSpot",
+      "trigger": "Every time a product needs a new price point for a different geography or distributor tier, a duplicate SKU must be created. Over 100 SKUs and growing. Each duplicate must be maintained in both HubSpot and the ERP.",
+      "cost": "Admin complexity grows dramatically with product variance. ERP-to-HubSpot consistency breaks down. Time spent maintaining duplicate SKUs across systems.",
+      "urgency": "high",
+      "urgency_reason": "Product line is actively expanding with more variants, making the problem compound"
+    },
+    {
+      "pain": "Lease and rental pricing calculations done manually in Excel outside HubSpot",
+      "trigger": "When a rep needs to quote a lease or rental, they must leave HubSpot, look up the correct pricing in a separate Excel sheet, calculate the monthly amount, then manually enter it. HubSpot does no math on billing frequency changes.",
+      "cost": "Every deal incurs admin overhead. Slows down quote velocity. Requires maintaining separate Excel calculators that must be updated and redistributed when pricing changes.",
+      "urgency": "high",
+      "urgency_reason": "Directly slows deal velocity on every lease and rental deal. Head of Product called it out as labor intensive."
+    },
+    {
+      "pain": "No discount governance or pricing guardrails",
+      "trigger": "Reps have full edit access to prices on line items. No rules prevent incorrect discounting. Different distributors have different tier-based discounts that reps must remember.",
+      "cost": "Revenue leakage risk. Inconsistent pricing to customers. Reps must memorize distributor discount tiers. Potential for embarrassing requotes when errors are caught after delivery.",
+      "urgency": "medium",
+      "urgency_reason": "Head of Product acknowledged this is not yet causing major errors due to moderate deal volume (600/year) but will become critical as complexity and volume grow"
+    },
+    {
+      "pain": "New rep onboarding requires extensive institutional knowledge transfer for quoting",
+      "trigger": "Onboarding a new salesperson. Product compatibility rules, application-specific kits, segment pricing, and template selection all depend on knowledge that exists only in veteran reps' heads.",
+      "cost": "Slow ramp time for new hires. Risk of incorrect quotes from uninformed reps. Management time spent on training and correction.",
+      "urgency": "medium",
+      "urgency_reason": "With 20 reps and a growing team, this pain recurs with every new hire"
+    },
+    {
+      "pain": "HubSpot product properties cannot be pulled into quote templates",
+      "trigger": "RevOps set up product properties (lease price, build details) expecting to use dynamic tokens in quotes. HubSpot does not support pulling product-level properties into quote templates. Properties became dead data storage.",
+      "cost": "Wasted setup effort. Product details must be manually duplicated into the description field. Cannot display alternate pricing (e.g., lease price) dynamically on quotes.",
+      "urgency": "medium",
+      "urgency_reason": "Workaround exists (description field) but prevents dynamic pricing display and creates maintenance overhead"
+    },
+    {
+      "pain": "Quote templates are rigid and cannot be customized without code",
+      "trigger": "Need to rename fields (e.g., 'Comments to buyer' to 'Project application'), add free text sections, conditionally show/hide content, or swap terms and conditions. HubSpot's template system does not allow any of this without coding in HubL markup.",
+      "cost": "8+ templates maintained just for language/subsidiary/terms combinations. Sales team confused by mislabeled fields. RevOps cannot iterate on templates without developer support.",
+      "urgency": "medium",
+      "urgency_reason": "Current workaround functions but creates confusion and limits the ability to improve the customer-facing quote experience"
+    },
+    {
+      "pain": "Payment schedule creation is entirely manual",
+      "trigger": "When quoting leases or rentals, reps must manually set payment amounts, percentages, and dates for each installment. HubSpot does not auto-calculate from term length and monthly amount.",
+      "cost": "Tedious to the point that the sales team avoids using the feature entirely. Described as 'too tedious for them to deal with.'",
+      "urgency": "low",
+      "urgency_reason": "Currently a nice-to-have. Team has stopped using the feature rather than fighting it."
+    }
+  ],
+  "workflow_reality": {
+    "current_process": "Reps add line items to deals in HubSpot from a product library organized by product family. Product library contains 100+ SKUs with contextual naming conventions. Reps select products, then create a quote using one of 8+ templates (segmented by subsidiary, language, and terms). Pricing for non-standard deal structures (leases, rentals) is calculated in external Excel spreadsheets. Discount logic and segment pricing exist only as institutional knowledge. Completed quotes are e-signed in HubSpot and emailed to an admin team for processing.",
+    "tools_in_use": [
+      "HubSpot Sales Hub (CRM, quoting, e-signatures, product library)",
+      "Excel spreadsheets (lease/rental pricing calculators, distributor price lists)",
+      "ERP system (production/fulfillment, SKU source of truth)",
+      "HubSpot design manager (attempted template customization, abandoned)"
+    ],
+    "team_size": 20,
+    "brittleness_indicators": [
+      "Previous CPQ implementation failed and was abandoned, creating organizational skepticism",
+      "Product properties set up in HubSpot are unused because they cannot flow to quotes",
+      "RevOps attempted HubSpot template customization via HubL and gave up",
+      "HubSpot support suggested workarounds that did not actually work, then pointed to ideas board",
+      "Pricing lives outside HubSpot in Excel, meaning any pricing change requires updating and redistributing spreadsheets",
+      "Same SKU must be duplicated for each price point, breaking ERP alignment",
+      "Payment schedule feature abandoned because manual entry is too tedious"
+    ]
+  },
+  "alternatives_and_competitors": {
+    "evaluated": [
+      {
+        "name": "Internal custom CPQ build",
+        "status": "attempted_and_abandoned",
+        "what_they_liked": "Intention was to fit their exact process",
+        "why_they_passed": "Implementation had issues. Was not adopted by the sales team. Created organizational skepticism about CPQ tools in general.",
+        "key_quote": "In the past, you'd attempted at making your own CPQ solutions and it wasn't to your liking, so it wasn't really adopted."
+      },
+      {
+        "name": "HubSpot native quoting",
+        "status": "current_tool_hitting_limits",
+        "what_they_liked": "Already in place. E-signatures work well. Deal creation process is fine.",
+        "why_they_passed": "Cannot handle complex pricing (multi-segment, lease/rental). Product properties do not flow to quotes. Templates are rigid. No discount controls. No guided selling. No auto-calculated payment schedules.",
+        "key_quote": "Some of the limitations of the HubSpot experience... we're restricted on product complexity."
+      },
+      {
+        "name": "Excel spreadsheets",
+        "status": "active_workaround",
+        "what_they_liked": "Flexible enough to model lease and rental pricing calculations",
+        "why_they_passed": "Not passing on them yet. Still actively using for pricing calculations outside HubSpot. Head of Product wants to consolidate away from them.",
+        "key_quote": "I keep a lot of that in Excels. It's labor intensive... ideally, we have one tool, one workflow for our sales team."
+      },
+      {
+        "name": "HubSpot consulting / professional services",
+        "status": "tried_with_limited_results",
+        "what_they_liked": "Consulted HubSpot directly for advice on quoting improvements",
+        "why_they_passed": "HubSpot proposed workarounds that were not real workarounds. Suggested adding requests to ideas board. No actionable path forward.",
+        "key_quote": "They proposed workarounds or like, that's not actually a workaround... and they were like, well, we don't have it. You can add it to our ideas board."
+      }
+    ],
+    "current_workaround": {
+      "description": "HubSpot native quoting with 100+ SKUs (duplicated for segment pricing) + external Excel spreadsheets for lease/rental pricing + institutional knowledge for product configuration and discount rules",
+      "adequacy": "Functional but labor intensive. Admin overhead baked into every deal. Slows velocity. Head of Product characterized it as designing process around the tool rather than tool around the process."
+    }
+  },
+  "quotes": [
+    {
+      "quote": "How do we get better here? How do we make this better fit our processes rather than trying to work to the tool? Let's build the tool to what is ideal for us.",
+      "timestamp": "05:23",
+      "speaker_role": "Head of Product",
+      "theme": "process_tool_fit",
+      "usability": "high",
+      "usage_notes": "Captures the core frustration of mid-market teams forcing their process into HubSpot's limitations. Strong for positioning content about HubSpot CPQ gaps."
+    },
+    {
+      "quote": "We're restricted on product complexity. Some of the limited ways that you can structure products in HubSpot... there's product line shortcomings and then there's product pricing shortcomings.",
+      "timestamp": "07:59",
+      "speaker_role": "Head of Product",
+      "theme": "hubspot_product_limitations",
+      "usability": "high",
+      "usage_notes": "Direct articulation of HubSpot CPQ's two-dimensional limitation: product structure and pricing structure. Good for comparison content."
+    },
+    {
+      "quote": "If we wanted to have a distributor price on a product, you may have to have two SKUs for that product in HubSpot, which then makes it very challenging to align with our ERP systems.",
+      "timestamp": "08:34",
+      "speaker_role": "Head of Product",
+      "theme": "sku_explosion_erp_misalignment",
+      "usability": "high",
+      "usage_notes": "Concrete example of SKU proliferation pain caused by HubSpot's single-price-per-product limitation. Strong for manufacturing audience content."
+    },
+    {
+      "quote": "I keep a lot of that in Excels. It's labor intensive. Ideally, we have one tool, one workflow for our sales team.",
+      "timestamp": "29:27",
+      "speaker_role": "Head of Product",
+      "theme": "tool_consolidation",
+      "usability": "high",
+      "usage_notes": "The one-tool aspiration. Resonates with every RevOps leader juggling spreadsheets alongside their CRM. Good for content targeting the spreadsheet-to-CPQ transition."
+    },
+    {
+      "quote": "It's not actually the errors that I care so strongly about. It is just the time that it takes to go and get that number from somewhere else, the training that goes involved with it, the updating of all these other materials... broadly, what I would consider admin work. It gets baked into every deal. It slows down our velocity.",
+      "timestamp": "29:51",
+      "speaker_role": "Head of Product",
+      "theme": "admin_overhead_velocity_drag",
+      "usability": "high",
+      "usage_notes": "Reframes quoting pain from accuracy to velocity. The cost is not errors, it is friction on every single deal. Strong for content targeting deal velocity and admin burden."
+    },
+    {
+      "quote": "That price scales too quickly for us on a per user basis.",
+      "timestamp": "60:47",
+      "speaker_role": "Head of Product",
+      "theme": "pricing_objection",
+      "usability": "medium",
+      "usage_notes": "Pricing objection pattern. Useful for internal sales enablement on handling per-seat pricing pushback from manufacturing companies with large rep counts."
+    },
+    {
+      "quote": "They proposed workarounds or like, that's not actually a workaround. And they were like, well, we don't have it. You can add it to our ideas board.",
+      "timestamp": "41:10",
+      "speaker_role": "RevOps / Sales Operations",
+      "theme": "hubspot_support_dead_end",
+      "usability": "high",
+      "usage_notes": "Captures the frustration of HubSpot users who have tried to get help from HubSpot directly. Validates the gap Quotivity fills. Strong for community and comparison content."
+    },
+    {
+      "quote": "You cannot pull in these properties into the quote. I thought that was the entire purpose of the properties here, but it didn't work.",
+      "timestamp": "25:24",
+      "speaker_role": "RevOps / Sales Operations",
+      "theme": "hubspot_property_limitation",
+      "usability": "high",
+      "usage_notes": "Specific HubSpot limitation that surprises users. Product properties exist but cannot be used in quotes. Good for SEO content targeting HubSpot quote customization searches."
+    },
+    {
+      "quote": "I spent a while years ago trying and just ultimately failing to the HubSpot's markup language. And I was just like, okay. No. This is beyond what I can do without dedicated education.",
+      "timestamp": "40:15",
+      "speaker_role": "RevOps / Sales Operations",
+      "theme": "template_customization_barrier",
+      "usability": "medium",
+      "usage_notes": "RevOps hitting the HubL wall. Validates need for no-code template builder. Good for content about HubSpot quote template limitations."
+    },
+    {
+      "quote": "It's generally bad practice to design our processes around a fixed tool. Trying to find the tools that work for your processes is how I think about it.",
+      "timestamp": "61:32",
+      "speaker_role": "Head of Product",
+      "theme": "process_over_tool",
+      "usability": "medium",
+      "usage_notes": "Articulates the buyer mindset: they want tools that flex to their process, not the other way around. Good for positioning content."
+    },
+    {
+      "quote": "If we saw this two years ago, I don't even think it would have been a discussion. I think it would have been go. But we're just in a different place now.",
+      "timestamp": "62:28",
+      "speaker_role": "RevOps / Sales Operations",
+      "theme": "budget_tightening",
+      "usability": "medium",
+      "usage_notes": "Budget reality for mid-market companies in 2026. The need is clear, but justification requirements are higher. Useful for internal sales enablement on navigating tighter budgets."
+    },
+    {
+      "quote": "We need to have broad buy-in before we make this step. Beyond just the investment, make sure that we actually have buy-in from the sales team that this is a step forward.",
+      "timestamp": "71:32",
+      "speaker_role": "Head of Product",
+      "theme": "buying_committee_dynamics",
+      "usability": "medium",
+      "usage_notes": "Reveals buying committee requirement: sales team validation plus executive approval. Previous failed CPQ creates higher bar for adoption evidence."
+    }
+  ],
+  "lexicon": {
+    "category_terms": [
+      "product family",
+      "product line",
+      "price book",
+      "deal structure",
+      "guided selling",
+      "rules engine",
+      "quote template",
+      "line items",
+      "payment schedule",
+      "billing frequency",
+      "e-signature",
+      "admin panel",
+      "product library"
+    ],
+    "value_language": [
+      "one tool, one workflow",
+      "consolidate quoting",
+      "automate calculations",
+      "dramatic admin advantages",
+      "dramatic advantage",
+      "needle-moving priorities",
+      "create value",
+      "fit our processes",
+      "slows down our velocity",
+      "proof of concept"
+    ],
+    "deviant_terms": [
+      {
+        "term": "admin work baked into every deal",
+        "meaning": "The overhead of manual pricing lookups, Excel calculations, and institutional knowledge retrieval that adds friction to every single quote, not just edge cases",
+        "frequency": "used once but describes a systemic pattern acknowledged by both prospect attendees"
+      },
+      {
+        "term": "SKU problem",
+        "meaning": "The compounding challenge of maintaining duplicate SKUs in HubSpot for each price-point variant, which breaks ERP alignment and scales admin burden",
+        "frequency": "referenced explicitly as 'exacerbates the SKU problem'"
+      },
+      {
+        "term": "market-agnostic product",
+        "meaning": "A hardware product that serves multiple industries (car wash, irrigation, industrial) with the same core unit but different application-specific kits and accessories",
+        "frequency": "used once, clearly an established internal product concept"
+      },
+      {
+        "term": "train the trainer",
+        "meaning": "Implementation model where vendor builds initial rules and trains the internal admin, who then owns ongoing configuration. Resonated immediately with the Head of Product.",
+        "frequency": "used once, Head of Product completed the phrase before it was finished"
+      },
+      {
+        "term": "ideas board",
+        "meaning": "HubSpot's feature request system, referenced dismissively as a dead end for getting needed capabilities",
+        "frequency": "used once, with clear frustration"
+      }
+    ]
+  },
+  "keyword_candidates": [
+    {
+      "keyword": "HubSpot CPQ limitations",
+      "source": "direct pain - prospect hit multiple walls with HubSpot native quoting: product properties, templates, pricing, discount controls",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "The 6 things HubSpot's native quoting can't do (and what manufacturing companies do instead)",
+      "scoring": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.95,
+        "serp_weakness": 0.70,
+        "business_priority": 0.85,
+        "mini_volume": 0.75,
+        "authority_fit": 0.90
+      },
+      "weighted_total": 0.87
+    },
+    {
+      "keyword": "HubSpot price books",
+      "source": "direct need - prospect specifically asked about price book functionality to solve multi-segment, multi-geography pricing without SKU duplication",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to manage multiple price lists in HubSpot without duplicating your product catalog",
+      "scoring": {
+        "buyer_intent": 0.95,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.75,
+        "business_priority": 0.80,
+        "mini_volume": 0.65,
+        "authority_fit": 0.85
+      },
+      "weighted_total": 0.86
+    },
+    {
+      "keyword": "HubSpot quote template customization",
+      "source": "direct pain - prospect cannot rename fields, add sections, or conditionally display content in HubSpot quote templates without HubL coding",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "How to customize HubSpot quote templates without learning HubL (no-code options for RevOps)",
+      "scoring": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.85,
+        "serp_weakness": 0.80,
+        "business_priority": 0.70,
+        "mini_volume": 0.80,
+        "authority_fit": 0.85
+      },
+      "weighted_total": 0.83
+    },
+    {
+      "keyword": "CPQ for manufacturing HubSpot",
+      "source": "direct fit - prospect is a manufacturer with configure-to-order products, application-specific kits, and complex pricing on HubSpot",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "Why manufacturers on HubSpot need a CPQ that handles product configuration and multi-channel pricing",
+      "scoring": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.95,
+        "serp_weakness": 0.80,
+        "business_priority": 0.70,
+        "mini_volume": 0.55,
+        "authority_fit": 0.90
+      },
+      "weighted_total": 0.84
+    },
+    {
+      "keyword": "HubSpot discount approval workflow",
+      "source": "prospect needs discount controls by distributor tier and approval routing when thresholds are exceeded",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to set up discount controls and approval workflows in HubSpot quoting",
+      "scoring": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.70,
+        "business_priority": 0.75,
+        "mini_volume": 0.70,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.82
+    },
+    {
+      "keyword": "HubSpot guided selling",
+      "source": "prospect described ideal workflow where selecting an application auto-suggests add-on kits - classic guided selling use case",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "How to build a guided selling experience inside HubSpot for configurable products",
+      "scoring": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.85,
+        "serp_weakness": 0.75,
+        "business_priority": 0.70,
+        "mini_volume": 0.65,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.79
+    },
+    {
+      "keyword": "HubSpot quoting for leases and rentals",
+      "source": "direct pain - prospect does sales, leases, and rentals but HubSpot cannot auto-calculate payment schedules or switch pricing by deal structure",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to quote leases and rentals in HubSpot without manual calculations",
+      "scoring": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.80,
+        "serp_weakness": 0.85,
+        "business_priority": 0.65,
+        "mini_volume": 0.50,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.78
+    },
+    {
+      "keyword": "HubSpot product configuration rules",
+      "source": "prospect needs product interdependency rules (certain products cannot go together, application-specific kits must be added automatically)",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "How to enforce product compatibility rules and auto-add required accessories in HubSpot quotes",
+      "scoring": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.70,
+        "business_priority": 0.65,
+        "mini_volume": 0.55,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.78
+    },
+    {
+      "keyword": "replace Excel quoting with CPQ",
+      "source": "prospect explicitly maintaining lease/rental pricing in Excel and wants to consolidate into one platform",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader", "vp_sales"],
+      "content_angle": "When your sales team still needs Excel to build a quote, your CRM quoting has a gap",
+      "scoring": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.70,
+        "serp_weakness": 0.65,
+        "business_priority": 0.75,
+        "mini_volume": 0.70,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.75
+    },
+    {
+      "keyword": "HubSpot ERP quoting integration",
+      "source": "prospect concerned about maintaining SKU alignment between HubSpot and ERP. Key requirement that Quotivity creates native HubSpot line items.",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "How to keep your HubSpot quoting aligned with your ERP without duplicate SKU management",
+      "scoring": {
+        "buyer_intent": 0.75,
+        "differentiator_fit": 0.70,
+        "serp_weakness": 0.70,
+        "business_priority": 0.70,
+        "mini_volume": 0.60,
+        "authority_fit": 0.70
+      },
+      "weighted_total": 0.72
+    }
+  ]
+}

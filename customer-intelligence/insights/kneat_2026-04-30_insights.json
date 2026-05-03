@@ -1,0 +1,481 @@
+{
+  "call_meta": {
+    "company": "Kneat",
+    "persona": "revops_leader",
+    "industry": "SaaS (validation/quality management software)",
+    "company_size": "Mid-market, global customers with parent-child company structures",
+    "deal_stage": "evaluation",
+    "call_date": "2026-04-30",
+    "participants": [
+      "Sinead Kirby (RevOps/Commercial Operations Lead)",
+      "Nicu Enache (HubSpot Admin/Technical Operations)",
+      "Rachel Frawley (Operations team member)",
+      "Daniel Gomez (Quotivity AE)",
+      "Bryan Roy (Quotivity Solutions Engineer)"
+    ]
+  },
+  "jtbd": [
+    {
+      "job": "Enable account managers to self-serve quotes with correct customer-specific pricing directly inside HubSpot",
+      "desired_outcome": "Account managers can build and send quotes without needing to ask the commercial operations team for pricing data, reducing delay for both internal teams and customers",
+      "current_approach": "Pricing lives in a master Excel file that account managers cannot access. They must request pricing from the commercial operations team, who manually look up negotiated prices, apply uplift terms, and build quotes"
+    },
+    {
+      "job": "Manage customer-specific price books with annual uplift terms at scale across 150+ customers",
+      "desired_outcome": "Price books automatically reflect cumulative annual uplifts so that expansion deals and renewals always use current pricing, not stale data",
+      "current_approach": "Manual CSV uploads to update price books. Uplift calculations done manually in Excel. Price books fall one to two years behind because updates are manual and customer-by-customer"
+    },
+    {
+      "job": "Generate accurate renewal quotes that roll up purchases across child/affiliate companies to a single parent for billing",
+      "desired_outcome": "Renewal deals automatically aggregate cumulative license counts across affiliates, calculate correct tier pricing, and apply uplift terms without manual assembly",
+      "current_approach": "Renewal quotes generated manually in NetSuite, referencing master Excel for pricing. Commercial operations manually totals licenses across child companies, determines cumulative tier price, applies uplift, then syncs to HubSpot. The NetSuite renewal is deleted after sync"
+    },
+    {
+      "job": "Quote ramp deals and multi-year contracts with different start dates, co-terming, and annual price increases on a single quote",
+      "desired_outcome": "A single quote that shows year-one pricing for initial users, prorated pricing for users added mid-term, and annual uplift for subsequent years, with correct cumulative tier pricing throughout",
+      "current_approach": "Custom HubSpot workarounds built by the technical operations team, including custom subtotal fields and prorated day calculations. HubSpot native totals do not reflect prorated pricing, causing confusion for account teams"
+    },
+    {
+      "job": "Get reliable ARR reporting on multi-year and ramp deals",
+      "desired_outcome": "ARR reported correctly per year, distinguishing year-one, year-two, and year-three revenue on multi-year deals rather than rolling everything into a single annual figure",
+      "current_approach": "Custom line-item-level year tagging and roll-up properties built internally. HubSpot native ARR calculations are unreliable for deals with different billing start dates"
+    }
+  ],
+  "pains": [
+    {
+      "pain": "Account managers cannot self-serve quotes because pricing data is locked in a master Excel file they do not have access to",
+      "trigger": "Every time an account manager needs to quote a customer. They must interrupt commercial operations, wait for pricing, and the customer waits too",
+      "cost": "Delayed quotes for every customer interaction. Time kills deals. Commercial operations team becomes a bottleneck on every quote request",
+      "urgency": "high",
+      "verbatim": "They need something. They're speaking to the customer. They'd like to be able to mock up what this looks like, but they have to come back to us. They're delayed, and the customer is delayed, and time kills deals."
+    },
+    {
+      "pain": "Customer-specific price books go stale because updates require manual CSV re-uploads",
+      "trigger": "Expansion deals where the original price book is years behind. When a customer adds products mid-contract, the pricing used is outdated",
+      "cost": "Price books one to two years behind reality. Expansion deals quoted at incorrect prices. Risk of undercharging or creating pricing inconsistencies",
+      "urgency": "high",
+      "verbatim": "The query comes about when they do an expansion and the original price book is three years behind."
+    },
+    {
+      "pain": "Renewal quote generation is extremely manual, requiring cross-referencing NetSuite, Excel, and HubSpot",
+      "trigger": "Every renewal cycle. Must look up contracts across child companies in NetSuite, total cumulative quantities, determine tier pricing, apply uplift terms, generate quote, then sync to HubSpot",
+      "cost": "Hours of manual work per renewal. High risk of errors in cumulative calculations. Commercial operations team capacity consumed by administrative work",
+      "urgency": "high",
+      "verbatim": "There's so much work goes into the renewal generation."
+    },
+    {
+      "pain": "HubSpot native ARR calculations are broken for multi-year and ramp deals",
+      "trigger": "Any deal with multiple billing start dates or multi-year terms. HubSpot rolls all revenue into a single ARR figure regardless of when billing starts",
+      "cost": "Unreliable revenue reporting. Custom fields must be created and maintained to get accurate ARR by year. Finance and leadership cannot trust native HubSpot reporting",
+      "urgency": "medium",
+      "verbatim": "HubSpot's ARR is completely broken, in my opinion."
+    },
+    {
+      "pain": "HubSpot quote totals cannot be hidden or replaced, making prorated pricing confusing for account teams",
+      "trigger": "When prorated pricing is calculated via custom subtotal fields, the native HubSpot total still displays and does not match, creating confusion",
+      "cost": "Account teams avoid using the prorated pricing because the numbers do not add up visually. Custom work to calculate proration goes unused",
+      "urgency": "medium",
+      "verbatim": "Account teams don't really use it 'cause it doesn't add up into the total in HubSpot."
+    },
+    {
+      "pain": "Automating tier pricing on co-term and ramp deals is blocked by HubSpot's inability to differentiate duplicate line items",
+      "trigger": "When the same product appears multiple times on a quote with different terms (year one vs. co-term period), rules update all instances instead of the target one",
+      "cost": "Cannot lock tier pricing for reps on ramp deals. Either requires manual tier selection (error-prone) or significant custom development with middleware",
+      "urgency": "medium",
+      "verbatim": "I'd like to have it locked for us."
+    },
+    {
+      "pain": "No subscription management or contract data natively in HubSpot to drive renewal workflows",
+      "trigger": "Every renewal cycle. No way to know what a customer's current subscription state is without referencing NetSuite",
+      "cost": "Continued reliance on NetSuite for contract management. Cannot fully consolidate quoting operations into HubSpot",
+      "urgency": "medium",
+      "verbatim": "My hope was that we'd get away from having to use NetSuite and be so reliant on NetSuite, but I just don't see it."
+    },
+    {
+      "pain": "HubSpot sandbox environment cannot be provisioned, blocking testing of Commerce Hub and contracts beta",
+      "trigger": "Attempting to test new HubSpot features. Possibly related to Stripe integration. Support tickets going unanswered",
+      "cost": "Evaluation process stalled. Cannot validate whether HubSpot native features would address requirements. Team members frustrated with HubSpot support responsiveness",
+      "urgency": "medium",
+      "verbatim": "They're ignoring me now, I think. My tickets, they're just not answering me anymore."
+    },
+    {
+      "pain": "Previous HubSpot partner engagements delivered poor results",
+      "trigger": "Tried Babel Quest (process review that added no value) and Aptitude 8 (limited output). No trusted implementation partner in place",
+      "cost": "Distrust of HubSpot ecosystem partners. Implementation work falls on internal team. Slows adoption of tools like Quotivity that require HubSpot pre-work",
+      "urgency": "low",
+      "verbatim": "They did a process review with us, and frankly, we could have done it ourselves."
+    }
+  ],
+  "workflow_reality": {
+    "current_process": "1. Renewal quote originates in NetSuite where contract data lives. 2. Commercial operations manually looks up all child company purchases under a parent account. 3. Cumulative license counts are totaled across affiliates. 4. Master Excel file is referenced for negotiated tier pricing. 5. Uplift terms are manually applied to determine renewal price. 6. Quote is generated in NetSuite and synced to HubSpot to create a renewal deal. 7. NetSuite quote is eventually deleted. For new/expansion deals: account managers cannot access pricing directly, must request from commercial operations, who build the quote manually.",
+    "tools_used": [
+      "HubSpot CRM (Sales Hub)",
+      "NetSuite ERP (contract management, renewal quote generation, source of truth for subscription data)",
+      "Stripe (payments, may be blocking Commerce Hub beta)",
+      "Excel/CSV (master price book, pricing calculations, uplift terms)",
+      "Custom HubSpot properties (prorated day calculations, custom subtotals, year-level ARR roll-ups)"
+    ],
+    "brittleness": "The entire pricing and renewal workflow depends on a master Excel file maintained by the commercial operations team. Account managers have no direct access. Price books go stale because updates require manual CSV re-uploads per customer. Multi-year and ramp deal pricing requires custom HubSpot development that the team has built internally but that account managers find confusing due to conflicting native HubSpot totals. Renewal generation requires manual cross-referencing across NetSuite, Excel, and HubSpot for every renewal cycle.",
+    "workarounds": [
+      "Custom HubSpot line item properties for prorated day calculations and custom subtotals",
+      "Year-level tagging on line items (year one, year two, year three) to calculate per-year ARR",
+      "NetSuite software items synced to HubSpot to track cumulative license counts per customer",
+      "Manual CSV uploads to update customer-specific price books",
+      "Separate ramp/expansion deals as a workaround for single-quote co-term pricing limitations"
+    ]
+  },
+  "alternatives_and_competitors": [
+    {
+      "name": "HubSpot CPQ (native quoting)",
+      "type": "status_quo",
+      "sentiment": "negative",
+      "context": "Currently in use but hitting major limitations. Cannot handle tiered pricing with cumulative quantities, prorated co-term pricing, multi-year uplift terms, or accurate ARR calculations. Native totals conflict with custom prorated calculations. Commerce Hub beta inaccessible due to possible Stripe conflict. Contracts object anticipated but not yet available.",
+      "known_competitor": true
+    },
+    {
+      "name": "NetSuite ERP",
+      "type": "adjacent_tool",
+      "sentiment": "mixed",
+      "context": "Relied on heavily for contract management and renewal quote generation. Described as trustworthy because it is finance-owned. Took four to six years to get working well. Team wants to reduce reliance on it but acknowledges it does a better job than what HubSpot currently offers.",
+      "known_competitor": true
+    },
+    {
+      "name": "Excel spreadsheets",
+      "type": "status_quo",
+      "sentiment": "negative",
+      "context": "Master price book lives in Excel. Account managers do not have access. Requires manual updates per customer. Price books fall years behind. The operations team wants to move this data into HubSpot so account managers can self-serve.",
+      "known_competitor": true
+    },
+    {
+      "name": "HubSpot Commerce Hub",
+      "type": "adjacent_tool",
+      "sentiment": "neutral",
+      "context": "Team wants to evaluate but cannot access it in sandbox environment. May require separate license. Contracts object is a dependency for subscription/renewal management but not yet generally available.",
+      "known_competitor": false
+    },
+    {
+      "name": "Babel Quest",
+      "type": "adjacent_tool",
+      "sentiment": "negative",
+      "context": "HubSpot implementation partner previously engaged. Did a process review that the team felt they could have done themselves. Not a good experience.",
+      "known_competitor": false
+    },
+    {
+      "name": "Aptitude 8",
+      "type": "adjacent_tool",
+      "sentiment": "negative",
+      "context": "HubSpot solutions partner previously engaged. Limited output. Also noted as potentially building competing custom quoting tools for customers.",
+      "known_competitor": false
+    }
+  ],
+  "quotes": [
+    {
+      "text": "They need something. They're speaking to the customer. They'd like to be able to mock up what this looks like, but they have to come back to us. They're delayed, and the customer is delayed, and time kills deals.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Describing why account managers need self-serve access to customer pricing data inside HubSpot",
+      "themes": ["quote_velocity", "self_service_quoting", "deal_delay", "rep_bottleneck"]
+    },
+    {
+      "text": "Today we don't give the account managers access to the master Excel. So we end up doing it all, but ideally I'd like that they would be able to self-serve.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Explaining the current state where pricing is gatekept by the operations team",
+      "themes": ["self_service_quoting", "spreadsheet_dependency", "operational_bottleneck"]
+    },
+    {
+      "text": "The query comes about, though, when they do an expansion and the original price book is three years behind.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Explaining why price book staleness is a problem for expansion deals specifically",
+      "themes": ["stale_pricing", "expansion_deals", "price_book_management"]
+    },
+    {
+      "text": "Otherwise we're a year or two years behind on our price book all the time.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Acknowledging the reality of manual price book maintenance at scale across 150+ customers",
+      "themes": ["stale_pricing", "price_book_management", "operational_debt"]
+    },
+    {
+      "text": "HubSpot's ARR is completely broken, in my opinion.",
+      "speaker": "Quotivity Solutions Engineer",
+      "context": "Discussing how HubSpot calculates ARR incorrectly on multi-year deals with different billing start dates. The prospect agreed this matches their experience.",
+      "themes": ["broken_reporting", "arr_calculation", "hubspot_limitation"]
+    },
+    {
+      "text": "Account teams don't really use it 'cause it doesn't add up into the total in HubSpot.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Describing how custom prorated pricing calculations go unused because they conflict with HubSpot's native totals",
+      "themes": ["adoption_failure", "hubspot_limitation", "proration", "workaround_friction"]
+    },
+    {
+      "text": "I'd like to have it locked for us.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "When asked if sales reps could be trusted to manually select the correct tier on co-term expansion products",
+      "themes": ["discount_governance", "pricing_controls", "tier_automation"]
+    },
+    {
+      "text": "There's so much work goes into the renewal generation. I feel like if we think about it a little bit more, we would be able to send across a fairly dumb renewal.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Realizing that Quotivity's uplift and tier pricing features could replace much of the manual renewal work currently done in NetSuite",
+      "themes": ["renewal_automation", "netsuite_dependency", "process_simplification"]
+    },
+    {
+      "text": "My hope was that we'd get away from having to use NetSuite and be so reliant on NetSuite, but I just don't see it.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Expressing frustration with being locked into NetSuite for contract management because HubSpot lacks subscription/contract features",
+      "themes": ["erp_dependency", "hubspot_limitation", "contract_management"]
+    },
+    {
+      "text": "They're ignoring me now, I think. My tickets, they're just not answering me anymore.",
+      "speaker": "HubSpot Admin/Technical Operations",
+      "context": "Describing HubSpot support experience when trying to get sandbox environment provisioned",
+      "themes": ["hubspot_support_frustration", "evaluation_blocked"]
+    },
+    {
+      "text": "They did a process review with us, and frankly, we could have done it ourselves.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Describing previous engagement with a HubSpot implementation partner",
+      "themes": ["partner_distrust", "implementation_risk"]
+    },
+    {
+      "text": "It only took us six years with NetSuite to get to this point.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Putting into perspective how long it took to build a working contract management system in their ERP",
+      "themes": ["implementation_timeline_anxiety", "erp_investment", "switching_cost"]
+    },
+    {
+      "text": "We hear that a lot. I don't think we're that unique.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Responding to Quotivity telling them their use case is one of the most complex they have seen",
+      "themes": ["market_validation", "complexity_normalization"]
+    },
+    {
+      "text": "But they become self-sufficient and, and, you know.",
+      "speaker": "RevOps/Commercial Operations Lead",
+      "context": "Describing the value of moving pricing data into HubSpot so account managers no longer depend on the operations team",
+      "themes": ["self_service_quoting", "operational_efficiency"]
+    }
+  ],
+  "lexicon": {
+    "category_terms": [
+      "price book",
+      "uplift terms",
+      "uplift percentage",
+      "co-term",
+      "co-terming",
+      "ramp deal",
+      "multi-year deal",
+      "expansion deal",
+      "renewal deal",
+      "tier price",
+      "tier pricing",
+      "cumulative total",
+      "cumulative quantity",
+      "prorated pricing",
+      "prorate daily",
+      "billing start date",
+      "contract term",
+      "service order",
+      "software items",
+      "line item",
+      "SKU",
+      "parent-child company",
+      "affiliate",
+      "change order",
+      "ARR",
+      "exit ARR",
+      "start ARR",
+      "master file",
+      "master Excel",
+      "CSV upload"
+    ],
+    "value_language": [
+      "self-serve",
+      "self-sufficient",
+      "time kills deals",
+      "source of truth",
+      "data they need to see is on the account",
+      "quote confidently",
+      "get a quote out quicker",
+      "trustworthy",
+      "locked for us",
+      "informed decision"
+    ],
+    "deviant_terms": [
+      {
+        "term": "dumb renewal",
+        "meaning": "A minimal renewal deal synced from NetSuite with just basic data, relying on HubSpot/Quotivity to apply pricing logic (uplift, tier pricing) rather than pre-calculating everything in the ERP",
+        "frequency": "Used once but represents a potential architectural shift in their workflow"
+      },
+      {
+        "term": "software items",
+        "meaning": "Custom objects in HubSpot synced from NetSuite that track the total count of active licenses per customer. Used instead of 'contract items' to avoid confusion with the HubSpot contracts object",
+        "frequency": "Used twice, established internal terminology"
+      },
+      {
+        "term": "pick up the tab",
+        "meaning": "When a global parent company consolidates all affiliate license purchases into a single renewal billing entity",
+        "frequency": "Used once but describes a common pattern across their customer base"
+      },
+      {
+        "term": "method to the madness",
+        "meaning": "Used by Quotivity SE when discussing the operational discipline needed to maintain 150+ customer-specific price books via CSV",
+        "frequency": "Used once"
+      }
+    ]
+  },
+  "keyword_candidates": [
+    {
+      "keyword": "HubSpot CPQ custom price books",
+      "type": "category",
+      "source_context": "Core pain throughout the call. Prospect manages 150+ customer-specific price books via CSV uploads. Needs them inside HubSpot for rep self-service.",
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 9,
+        "serp_weakness": 7,
+        "business_priority": 9,
+        "mini_volume": 6,
+        "authority_fit": 8,
+        "weighted_total": 8.35
+      }
+    },
+    {
+      "keyword": "HubSpot renewal quote automation",
+      "type": "jtbd",
+      "source_context": "Prospect generates renewal quotes manually in NetSuite, wants to automate in HubSpot. Described extensive manual work aggregating child company purchases and applying uplift terms.",
+      "priority_score": {
+        "buyer_intent": 9,
+        "differentiator_fit": 7,
+        "serp_weakness": 7,
+        "business_priority": 8,
+        "mini_volume": 7,
+        "authority_fit": 8,
+        "weighted_total": 7.95
+      }
+    },
+    {
+      "keyword": "HubSpot tiered pricing cumulative volume",
+      "type": "long_tail",
+      "source_context": "Prospect needs tier pricing based on cumulative license counts across parent-child companies. Current approach requires manual lookup of accumulated totals across affiliates.",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 9,
+        "serp_weakness": 8,
+        "business_priority": 8,
+        "mini_volume": 5,
+        "authority_fit": 8,
+        "weighted_total": 7.90
+      }
+    },
+    {
+      "keyword": "HubSpot co-term pricing proration",
+      "type": "long_tail",
+      "source_context": "Prospect prorates daily for co-term expansion deals. Built custom HubSpot properties for day calculations but native totals conflict, causing adoption issues.",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 8,
+        "business_priority": 7,
+        "mini_volume": 5,
+        "authority_fit": 7,
+        "weighted_total": 7.55
+      }
+    },
+    {
+      "keyword": "HubSpot multi-year deal pricing uplift",
+      "type": "jtbd",
+      "source_context": "Prospect needs annual price increases on multi-year contracts. HubSpot cannot apply uplift within a single SKU across years. Requires duplicate SKUs with year designations and formulas.",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 8,
+        "serp_weakness": 7,
+        "business_priority": 7,
+        "mini_volume": 6,
+        "authority_fit": 7,
+        "weighted_total": 7.45
+      }
+    },
+    {
+      "keyword": "HubSpot ARR calculation multi-year deals",
+      "type": "category",
+      "source_context": "Both Quotivity SE and prospect agreed HubSpot ARR is broken for deals with multiple billing start dates. Prospect built custom year-level ARR roll-ups as workaround.",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 6,
+        "serp_weakness": 7,
+        "business_priority": 7,
+        "mini_volume": 7,
+        "authority_fit": 6,
+        "weighted_total": 6.75
+      }
+    },
+    {
+      "keyword": "HubSpot quoting spreadsheet replacement",
+      "type": "comparison",
+      "source_context": "Prospect's account managers currently cannot access master Excel pricing file. Quotivity SE described this as the most common problem they solve: reps with spreadsheet on one screen, HubSpot on the other.",
+      "priority_score": {
+        "buyer_intent": 8,
+        "differentiator_fit": 7,
+        "serp_weakness": 5,
+        "business_priority": 7,
+        "mini_volume": 7,
+        "authority_fit": 7,
+        "weighted_total": 7.00
+      }
+    },
+    {
+      "keyword": "HubSpot parent child company pricing",
+      "type": "long_tail",
+      "source_context": "Prospect's customers have affiliate structures where child companies buy independently but renewals roll up to a global parent. Cumulative tier pricing must respect the parent-level total.",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 8,
+        "serp_weakness": 8,
+        "business_priority": 7,
+        "mini_volume": 4,
+        "authority_fit": 7,
+        "weighted_total": 7.15
+      }
+    },
+    {
+      "keyword": "HubSpot CPQ vs NetSuite quoting",
+      "type": "comparison",
+      "source_context": "Prospect currently uses NetSuite for renewal quote generation and contract management. Wants to consolidate into HubSpot but acknowledges NetSuite does a better job today.",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 6,
+        "serp_weakness": 7,
+        "business_priority": 6,
+        "mini_volume": 5,
+        "authority_fit": 6,
+        "weighted_total": 6.45
+      }
+    },
+    {
+      "keyword": "HubSpot ramp deal quoting",
+      "type": "jtbd",
+      "source_context": "Prospect needs to quote initial users at full term and additional users starting mid-contract on a single deal. Users ramp after deployment period.",
+      "priority_score": {
+        "buyer_intent": 7,
+        "differentiator_fit": 8,
+        "serp_weakness": 8,
+        "business_priority": 6,
+        "mini_volume": 4,
+        "authority_fit": 7,
+        "weighted_total": 7.00
+      }
+    },
+    {
+      "keyword": "HubSpot contracts object beta",
+      "type": "category",
+      "source_context": "Discussed at length. Prospect waiting for contracts object to solve subscription management gaps. Quotivity SE indicated expected launch at Unbound (September). Both cautious about first-release quality.",
+      "priority_score": {
+        "buyer_intent": 6,
+        "differentiator_fit": 4,
+        "serp_weakness": 6,
+        "business_priority": 5,
+        "mini_volume": 7,
+        "authority_fit": 5,
+        "weighted_total": 5.55
+      }
+    }
+  ]
+}

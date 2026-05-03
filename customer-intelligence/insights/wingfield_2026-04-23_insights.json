@@ -1,0 +1,364 @@
+{
+  "call_meta": {
+    "call_id": "transcript-2026-04-23-wingfield",
+    "date": "2026-04-23",
+    "duration_minutes": 43,
+    "prospect_name": "Jeremy Wilson",
+    "prospect_title": "Sales Lead / Account Executive",
+    "prospect_name_2": "Nate Williams",
+    "prospect_title_2": "Sales Representative (new hire)",
+    "company": "Wingfield Scale",
+    "industry": "Industrial Services / Manufacturing (refractory inspections, stockpile inventory, mobile mapping)",
+    "partner_led": true,
+    "partner_name": "Blue Leads (Charla Mayhew)",
+    "persona_match": "vp_of_sales",
+    "estimated_deal_stage": "demo_to_evaluation",
+    "quoters_count": "2 now, up to 4 long-term",
+    "estimated_tcv": "$5,000/yr (enterprise license) + $2,500-$8,500 one-time implementation",
+    "next_steps": [
+      "Partner (Blue Leads) to send scoped proposal with project timeline breakdown",
+      "Follow-up call with sales rep (Nate) to review proposal — next day",
+      "Internal discussion between sales leads, then escalate to boss for approval",
+      "Target decision by April 30, project start mid-May, target completion by July 4"
+    ]
+  },
+  "jtbd": [
+    {
+      "job": "Eliminate manual spreadsheet-based quoting so new reps can quote accurately without institutional knowledge",
+      "context": "Sales lead has built years of pricing knowledge in Excel spreadsheets. New sales hire joining the team cannot access that institutional knowledge without hand-holding. Quoting requires manually entering days on site, location, number of assets, and running complex calculations.",
+      "desired_outcome": "Reps enter details into guided fields inside HubSpot, and pricing calculations run automatically based on codified rules — no spreadsheet expertise required"
+    },
+    {
+      "job": "Support complex, variable pricing for services that differ by environment, asset count, and service type",
+      "context": "Pricing changes based on number of assets measured (1 vs. 2-3 vs. 4+), whether service is expedited (+20%), and what combination of services is quoted. Every job is unique because they sell services, not widgets.",
+      "desired_outcome": "Dynamic pricing that adjusts automatically based on quantity thresholds, service type, and customer-specific agreements"
+    },
+    {
+      "job": "Scale quoting capacity from 1-2 quoters to 4 without proportional error rates",
+      "context": "Company is growing — hiring interns, attending trade shows nationally, expanding sales team. Current process depends on one person's Excel expertise.",
+      "desired_outcome": "Any authorized team member can produce accurate, professionally branded quotes without senior oversight on every deal"
+    }
+  ],
+  "pains": [
+    {
+      "pain": "Manual Excel-based quoting with complex formulas that only one person understands",
+      "trigger": "Every new quote requires jumping between Excel and HubSpot. Sales lead manually enters number of days, location, asset types, and runs custom calculations. New reps cannot replicate this without training.",
+      "cost": "Quoting bottleneck on a single person. Risk of calculation errors ('we're all human'). Cannot scale quoting to new hires without extensive hand-holding. Revenue leakage from incorrect manual calculations.",
+      "urgency": "high",
+      "urgency_reason": "New sales hire already on board. Team expanding with interns this summer. Need quoting process that scales by July 4 target."
+    },
+    {
+      "pain": "No automated volume-based pricing tiers — rep must manually look up and apply different prices based on asset count",
+      "trigger": "When quoting multiple assets, price per asset drops at specific thresholds (1 asset vs. 2-3 vs. 4+). Currently done by manually referencing a pricing table in the spreadsheet.",
+      "cost": "Time spent per quote on manual tier lookups. Risk of applying wrong tier pricing. Customer-facing quotes show all three price columns rather than calculating the right one dynamically.",
+      "urgency": "high",
+      "urgency_reason": "This is the core quoting complexity that makes the spreadsheet process fragile and hard to delegate"
+    },
+    {
+      "pain": "Expedited service pricing requires manual percentage markup with no guardrails",
+      "trigger": "When a customer requests expedited service, the quoter must manually add a 20% markup. No system enforces this rule.",
+      "cost": "Risk of forgetting the expedite markup or applying the wrong percentage. No audit trail for when expedite pricing is applied.",
+      "urgency": "medium",
+      "urgency_reason": "Known need but not the primary driver of evaluation"
+    },
+    {
+      "pain": "Quote templates are inconsistent — vary based on one person's ad-hoc design decisions",
+      "trigger": "Sales lead admits template variation is 'just due to my whims' and trying to fit content on one page. Three distinct service lines (refractory inspections, stockpile inventory, mobile mapping) need separate templates.",
+      "cost": "Inconsistent brand presentation. Time spent redesigning quote layouts per deal. No standardized customer experience.",
+      "urgency": "medium",
+      "urgency_reason": "Acknowledged problem but secondary to pricing automation"
+    },
+    {
+      "pain": "Custom asset names need to coexist with standard product categories in quotes",
+      "trigger": "Products have customer-specific names (e.g., 'FM7') that fall under standard categories (e.g., 'small mill'). Current quoting must accommodate both naming conventions.",
+      "cost": "Adds complexity to every quote. Risk of miscategorization. Makes product library management difficult.",
+      "urgency": "medium",
+      "urgency_reason": "Specific workflow need raised during demo — important for adoption but not the buying trigger"
+    },
+    {
+      "pain": "No discount controls or approval workflows — anyone can quote any price",
+      "trigger": "Some customers have standing discount agreements (e.g., 20% off). Regional pricing variations exist. No system prevents unauthorized discounting.",
+      "cost": "Potential margin erosion from uncontrolled discounting. No visibility into discount patterns. Relies on institutional knowledge of customer-specific pricing agreements.",
+      "urgency": "medium",
+      "urgency_reason": "Responded positively to approval workflow demo but did not cite it as a current acute pain"
+    }
+  ],
+  "workflow_reality": {
+    "current_process": "Sales lead builds quotes in Excel spreadsheets, manually entering number of days on site, location, asset types, quantities, and service tiers. Calculations run via Excel formulas built on years of institutional knowledge. Finished quotes are transferred to HubSpot or formatted as branded PDFs. Quote design varies per deal based on ad-hoc layout decisions.",
+    "tools_in_use": [
+      "Excel (primary quoting tool — complex formulas for pricing calculations)",
+      "HubSpot Sales Hub (CRM — deals and pipeline)",
+      "PDF / branded quote documents (customer-facing output)"
+    ],
+    "team_size": 2,
+    "team_size_planned": 4,
+    "brittleness_indicators": [
+      "Single person holds all pricing calculation knowledge in Excel",
+      "New hire cannot quote independently without hand-holding",
+      "Quote template design is ad-hoc — 'just due to my whims'",
+      "Three service lines require different quote structures but no standardized templates exist",
+      "Volume-based pricing tiers displayed as static columns rather than calculated dynamically",
+      "Customer-specific pricing agreements stored in institutional memory, not enforced by system"
+    ]
+  },
+  "alternatives_and_competitors": {
+    "evaluated": [
+      {
+        "name": "HubSpot CPQ (native quoting)",
+        "status": "current_tool_insufficient",
+        "what_they_liked": "Already in HubSpot. No additional cost.",
+        "why_they_passed": "Cannot handle complex pricing calculations, volume-based tier pricing, bundling, approval workflows, or advanced quote template customization. Partner (Blue Leads) specifically flagged HubSpot native quoting as too limited for their needs.",
+        "key_quote": "What's unique to Quotivity that we could not do on our own [in HubSpot]?"
+      },
+      {
+        "name": "Excel spreadsheets",
+        "status": "current_primary_tool",
+        "what_they_liked": "Flexible. Can model any pricing scenario. Sales lead has built years of institutional knowledge into formulas.",
+        "why_they_passed": "Cannot scale to new hires. Disconnected from CRM. No guardrails. Manual calculation errors are a known risk. Quote formatting is inconsistent.",
+        "key_quote": "You had a list of five or six things that you were having to enter manually."
+      }
+    ],
+    "current_workaround": {
+      "description": "Excel spreadsheets for pricing calculations + HubSpot for deal tracking + manually designed PDF quotes. Sales lead enters days on site, location, asset count, service types into Excel, runs formulas, and transfers results to customer-facing quote documents.",
+      "adequacy": "Functional for a single experienced quoter but cannot scale. New hire cannot replicate the process. Every quote depends on one person's Excel expertise and institutional pricing knowledge."
+    }
+  },
+  "quotes": [
+    {
+      "quote": "You kind of had a list of five or six things that you were having to enter manually.",
+      "timestamp": "00:05:16",
+      "speaker_role": "quotivity_sales_rep",
+      "theme": "manual_quoting_friction",
+      "usability": "medium",
+      "usage_notes": "Describes the prospect's current Excel process — useful for illustrating the manual data entry pain in status-quo-vs-CPQ content. Paraphrase rather than direct quote since it comes from the Quotivity rep summarizing the prospect's process."
+    },
+    {
+      "quote": "We're all human, where unfortunately maybe we do a calculation incorrectly or you know, we bring it back over to HubSpot incorrectly.",
+      "timestamp": "00:06:16",
+      "speaker_role": "quotivity_sales_rep",
+      "theme": "revenue_leakage_from_manual_errors",
+      "usability": "medium",
+      "usage_notes": "The prospect affirmed this with 'Yes' — validates the pain of manual calculation errors leading to revenue leakage."
+    },
+    {
+      "quote": "We're not selling widgets, we're selling a service. And every service is kind of a unique monster in and of itself just based off of the environment that we're going into.",
+      "timestamp": "00:17:01",
+      "speaker_role": "sales_rep",
+      "theme": "service_complexity_quoting",
+      "usability": "high",
+      "usage_notes": "Perfect for content targeting service businesses with variable pricing. Captures the core challenge of quoting non-standard services. Strong hook for 'CPQ for services' positioning."
+    },
+    {
+      "quote": "What's unique to Quotivity that we could not do on our own?",
+      "timestamp": "00:22:41",
+      "speaker_role": "sales_lead",
+      "theme": "hubspot_cpq_limitations",
+      "usability": "high",
+      "usage_notes": "Direct buying question that reveals the prospect is comparing Quotivity against HubSpot native quoting and Excel. Useful for HubSpot CPQ comparison content."
+    },
+    {
+      "quote": "The honest answer is some of the variation is just due to my whims. And just trying to figure out how do I fit this all on one page.",
+      "timestamp": "00:38:16",
+      "speaker_role": "sales_lead",
+      "theme": "quote_template_inconsistency",
+      "usability": "high",
+      "usage_notes": "Reveals that quote design is ad-hoc and driven by one person's judgment rather than standardized templates. Good for content about brand consistency and professional quoting."
+    },
+    {
+      "quote": "If it's measured alone, it's $7784. If it's measured in conjunction with two to three other assets it's $5994. If it's in conjunction with four other assets it would be $5261. What would be nice in the build your own is select this one, select this one, and then it automatically starts changing prices once you cross a certain threshold.",
+      "timestamp": "00:34:36",
+      "speaker_role": "sales_lead",
+      "theme": "volume_tiered_pricing_need",
+      "usability": "high",
+      "usage_notes": "Specific, quantified example of tiered volume pricing that cannot be handled by HubSpot native quoting. Ideal for content about complex pricing configuration. Exact dollar amounts should be anonymized in published content."
+    },
+    {
+      "quote": "We have one option if they want it expedited, it adds 20%.",
+      "timestamp": "00:12:09",
+      "speaker_role": "sales_lead",
+      "theme": "conditional_pricing_rules",
+      "usability": "medium",
+      "usage_notes": "Example of conditional pricing logic that needs to be automated. Good for content about pricing rule automation."
+    },
+    {
+      "quote": "I wanna see drop-down menus and dynamic pricing action.",
+      "timestamp": "00:45:04",
+      "speaker_role": "sales_rep",
+      "theme": "interactive_quote_desire",
+      "usability": "medium",
+      "usage_notes": "Snarky but revealing — the rep is already envisioning the dynamic quoting experience. Shows buy-in from the second stakeholder."
+    }
+  ],
+  "lexicon": {
+    "category_terms": [
+      "quoting",
+      "line items",
+      "price book",
+      "product library",
+      "quote template",
+      "approval process",
+      "discounting",
+      "bundles",
+      "add-ons",
+      "optional line items",
+      "e-signature"
+    ],
+    "value_language": [
+      "automatically starts changing prices",
+      "build your own",
+      "guardrails",
+      "revenue leakage",
+      "doesn't take 12 weeks to set up",
+      "manage it yourself going forward",
+      "not selling widgets",
+      "unique monster"
+    ],
+    "deviant_terms": [
+      {
+        "term": "unique monster",
+        "meaning": "Each service engagement is a one-off configuration based on the client's environment — not a repeatable SKU. Captures the core quoting complexity for services businesses.",
+        "frequency": "used once but clearly describes a persistent reality"
+      },
+      {
+        "term": "build your own",
+        "meaning": "An interactive quote where the customer selects assets and the price recalculates dynamically. Describes the desired end-state for customer-facing quotes.",
+        "frequency": "used once in reference to interactive quoting"
+      },
+      {
+        "term": "my whims",
+        "meaning": "Acknowledges that quote template design is ad-hoc and driven by one person's judgment rather than a standardized system. Self-deprecating honesty about process immaturity.",
+        "frequency": "used once"
+      }
+    ]
+  },
+  "keyword_candidates": [
+    {
+      "keyword": "HubSpot quoting for services companies",
+      "source": "direct pain — prospect sells complex services (not products) and cannot quote them in HubSpot natively",
+      "intent": "solution_seeking",
+      "persona_fit": ["vp_of_sales", "revops_leader"],
+      "content_angle": "Why services companies outgrow HubSpot's native quoting before product companies do — and what to use instead",
+      "scoring": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.85,
+        "serp_weakness": 0.80,
+        "business_priority": 0.85,
+        "mini_volume": 0.60,
+        "authority_fit": 0.85
+      },
+      "weighted_total": 0.8475
+    },
+    {
+      "keyword": "CPQ for complex pricing calculations",
+      "source": "core pain — volume-tiered pricing, conditional markups, customer-specific discounts all require automation beyond spreadsheets",
+      "intent": "solution_seeking",
+      "persona_fit": ["vp_of_sales", "revops_leader"],
+      "content_angle": "When your pricing has too many variables for a spreadsheet: how mid-market teams automate complex quoting",
+      "scoring": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.70,
+        "business_priority": 0.80,
+        "mini_volume": 0.65,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.8225
+    },
+    {
+      "keyword": "HubSpot CPQ limitations",
+      "source": "prospect directly asked what Quotivity can do that HubSpot cannot — partner flagged HubSpot native quoting as insufficient",
+      "intent": "comparison_shopping",
+      "persona_fit": ["revops_leader", "vp_of_sales"],
+      "content_angle": "What HubSpot's native quoting cannot do: calculations, approvals, bundles, price books, and template flexibility",
+      "scoring": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.75,
+        "business_priority": 0.70,
+        "mini_volume": 0.70,
+        "authority_fit": 0.85
+      },
+      "weighted_total": 0.8375
+    },
+    {
+      "keyword": "replace Excel quoting with HubSpot CPQ",
+      "source": "primary workflow — prospect currently quotes entirely in Excel and wants to bring that process into HubSpot",
+      "intent": "solution_seeking",
+      "persona_fit": ["vp_of_sales", "revops_leader"],
+      "content_angle": "From spreadsheet formulas to HubSpot: how to migrate complex quoting without losing your pricing logic",
+      "scoring": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.80,
+        "serp_weakness": 0.80,
+        "business_priority": 0.80,
+        "mini_volume": 0.70,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.8350
+    },
+    {
+      "keyword": "volume-based pricing tiers in HubSpot",
+      "source": "specific pain — prospect showed exact tiered pricing (1 asset vs. 2-3 vs. 4+) that HubSpot cannot calculate dynamically",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_of_sales"],
+      "content_angle": "How to set up volume-based pricing tiers in HubSpot (and why native quoting cannot do it)",
+      "scoring": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.85,
+        "serp_weakness": 0.75,
+        "business_priority": 0.70,
+        "mini_volume": 0.65,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.8050
+    },
+    {
+      "keyword": "HubSpot quote approval workflow",
+      "source": "prospect engaged with approval workflow demo — showed interest in discount thresholds and escalation rules",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to add quote approval workflows to HubSpot (discount thresholds, margin floors, and escalation rules)",
+      "scoring": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.85,
+        "serp_weakness": 0.70,
+        "business_priority": 0.65,
+        "mini_volume": 0.70,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.7775
+    },
+    {
+      "keyword": "interactive quote builder HubSpot",
+      "source": "prospect reacted positively to optional line items and dynamic pricing — described desired 'build your own' experience",
+      "intent": "solution_seeking",
+      "persona_fit": ["vp_of_sales", "revops_leader"],
+      "content_angle": "How to create interactive quotes in HubSpot with optional add-ons and dynamic pricing",
+      "scoring": {
+        "buyer_intent": 0.75,
+        "differentiator_fit": 0.80,
+        "serp_weakness": 0.75,
+        "business_priority": 0.60,
+        "mini_volume": 0.60,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.7425
+    },
+    {
+      "keyword": "HubSpot price books for customer-specific pricing",
+      "source": "demo highlighted price books for regional and customer-specific pricing — prospect confirmed need for standing discount agreements",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to manage customer-specific and regional pricing in HubSpot with price books",
+      "scoring": {
+        "buyer_intent": 0.75,
+        "differentiator_fit": 0.80,
+        "serp_weakness": 0.70,
+        "business_priority": 0.60,
+        "mini_volume": 0.55,
+        "authority_fit": 0.70
+      },
+      "weighted_total": 0.7225
+    }
+  ]
+}

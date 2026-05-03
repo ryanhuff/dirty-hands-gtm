@@ -1,0 +1,370 @@
+{
+  "call_meta": {
+    "call_id": "transcript-2026-04-29-dalux",
+    "date": "2026-04-29",
+    "duration_minutes": 47,
+    "prospect_name": "Matej Horvath",
+    "prospect_title": "RevOps / Sales Operations (Technical Evaluator)",
+    "company": "Dalux",
+    "employee_count_estimate": "mid-market (200+ quoters)",
+    "industry": "SaaS / Construction Technology",
+    "hq_location": "Copenhagen, Denmark",
+    "persona_match": "revops_leader",
+    "estimated_deal_stage": "evaluation_trial",
+    "quotivity_reps": ["Daniel Gomez", "Bryan Roy"],
+    "next_steps": [
+      "Prospect to download and begin self-service trial via HubSpot Marketplace",
+      "Bryan to organize prospect's requirements list into prioritized onboarding hit-list with starter Loom videos",
+      "Follow-up call scheduled for Thursday next week (May 7) at 4:10 PM CET",
+      "Prospect to attempt bringing manager to follow-up call",
+      "Phase 1 focus: pricing, price books, rules, approvals. Phase 2: document generation and templates"
+    ]
+  },
+  "jtbd": [
+    {
+      "job": "Replace disconnected quoting and e-signature workflow with a unified CPQ inside HubSpot",
+      "context": "Currently using DocuSign for signatures and HubSpot for CRM, but quoting lives outside HubSpot. Reps manually input line items after quotes are signed. 200+ quoters across 20+ language markets.",
+      "desired_outcome": "Single tool that handles pricing, quoting, approvals, document generation, and e-signature natively within HubSpot, eliminating dual data entry and disconnected workflows"
+    },
+    {
+      "job": "Enforce discount governance and approval workflows without manual review of every quote",
+      "context": "HubSpot's native pricing is per-unit only. Tiered pricing requires workarounds with multiple units. No way to set discount thresholds that trigger approvals automatically.",
+      "desired_outcome": "Set price discounts per product (not just per unit), track total discounts, and auto-route quotes exceeding thresholds to approvers"
+    },
+    {
+      "job": "Manage 78+ quote templates across 20+ languages without overwhelming individual reps",
+      "context": "78 templates exist today. A single salesperson only needs about 4. German reps should not see Italian contracts. No template scoping or role-based visibility exists in current setup.",
+      "desired_outcome": "Template visibility scoped by user group or region so reps see only the templates relevant to their market"
+    }
+  ],
+  "pains": [
+    {
+      "pain": "HubSpot native pricing only supports per-unit discounting, making tiered pricing and set-price discounts impossible without workarounds",
+      "trigger": "Every quote involving tiered pricing or custom discount amounts. Reps must create multiple line items to simulate tiers, then a percentage discount applies to all units instead of the specific tier.",
+      "cost": "Quoting errors, rework, and slow turnaround on complex deals. Reps cannot simply enter a set discount price per product.",
+      "urgency": "high",
+      "urgency_reason": "Core quoting workflow is broken for their pricing model. This is the primary driver of the CPQ evaluation."
+    },
+    {
+      "pain": "No template scoping: 78 templates visible to all reps when each rep needs only 4",
+      "trigger": "Every time a rep creates a quote and must scroll through 78 templates to find the right one. German reps see Italian contracts. No way to restrict visibility by user group.",
+      "cost": "Rep confusion, slower quote creation, risk of using wrong template for wrong market. Multiplied across 200+ quoters in 20+ language markets.",
+      "urgency": "high",
+      "urgency_reason": "Scale of 200 quoters across 20+ languages makes this a daily operational drag"
+    },
+    {
+      "pain": "No discount tracking or reporting on per-product and total discount amounts",
+      "trigger": "Finance and management cannot see discount patterns across quotes. No visibility into what discounts are being given per product or in aggregate.",
+      "cost": "Potential margin erosion invisible until revenue is recognized. No data to inform pricing strategy or identify discounting abuse.",
+      "urgency": "medium",
+      "urgency_reason": "Connected to approval workflow requirement but not yet causing visible revenue losses that have been quantified"
+    },
+    {
+      "pain": "No approval workflows tied to discount thresholds",
+      "trigger": "Discounts exceed acceptable levels with no automatic escalation. Manual review is the only control mechanism.",
+      "cost": "Either every quote gets manually reviewed (bottleneck) or discounts go unchecked (margin risk).",
+      "urgency": "high",
+      "urgency_reason": "Prospect explicitly connected discount tracking to approvals as a core requirement"
+    },
+    {
+      "pain": "Disconnected quoting and CRM: line items must be manually entered into HubSpot after DocuSign-based quotes",
+      "trigger": "Every closed deal. After a quote is signed via DocuSign, someone must go back and enter line items into HubSpot deals manually.",
+      "cost": "Double data entry across 200+ quoters. Reporting on quoted products and pricing is unreliable because it depends on manual re-entry. Time lost per deal on administrative work.",
+      "urgency": "high",
+      "urgency_reason": "Quotivity rep surfaced this as a key value driver and prospect confirmed the pain"
+    },
+    {
+      "pain": "DealHub was too complex: required a dedicated admin and extensive implementation",
+      "trigger": "Evaluated DealHub through a peer's demo. Learned that the reference company has a dedicated DealHub admin just to maintain the tool.",
+      "cost": "Prospect dropped DealHub from evaluation. If a tool requires a dedicated admin, it is too heavy for their operational model.",
+      "urgency": "high",
+      "urgency_reason": "This is an active disqualifier shaping the current evaluation. Self-service capability is a must-have."
+    },
+    {
+      "pain": "Cannot lock sections of quotes (especially terms and conditions) to prevent buyer edits",
+      "trigger": "Sending quotes with legal terms that buyers could modify before signing.",
+      "cost": "Legal and compliance risk if terms are altered. Requires manual verification of every signed quote.",
+      "urgency": "medium",
+      "urgency_reason": "Mentioned as a requirement but not described as causing active incidents"
+    },
+    {
+      "pain": "E-signature workflow gaps: need signing order, multiple signees, reassignment, verification steps, and recall/edit capability",
+      "trigger": "Complex signature routing across multiple stakeholders. Some customers still require wet signatures. Need email/phone verification before signing.",
+      "cost": "Current DocuSign workflow handles these but moving to a new tool risks losing these capabilities.",
+      "urgency": "medium",
+      "urgency_reason": "Bryan acknowledged some DocuSign-like features are not available in Quotivity. Prospect may need to accept trade-offs."
+    }
+  ],
+  "workflow_reality": {
+    "current_process": "Quoting and document generation handled via DocuSign, disconnected from HubSpot CRM. Reps build quotes outside HubSpot, route for signature via DocuSign, then manually enter line items back into HubSpot deals. 78 quote templates managed across 20+ languages. Pricing and discount calculations done manually or via HubSpot's limited per-unit model.",
+    "tools_in_use": [
+      "HubSpot CRM (Sales Hub)",
+      "DocuSign (e-signature and document generation)",
+      "SharePoint / Outlook / Microsoft Teams (internal collaboration)",
+      "PowerPoint / Slides decks (requirements documentation)"
+    ],
+    "team_size_quoters": 200,
+    "languages_supported": "20+",
+    "template_count": 78,
+    "brittleness_indicators": [
+      "Line items manually re-entered into HubSpot after quotes are signed — data integrity depends on manual discipline across 200 quoters",
+      "78 templates with no scoping — any rep can select any template including wrong-market contracts",
+      "Tiered pricing requires workaround of adding multiple line items to simulate tiers",
+      "No automated discount controls — governance is manual or absent",
+      "Prospect is building requirements in a PowerPoint deck — no formal evaluation framework exists internally",
+      "First-time platform buyer at this company — no established procurement process"
+    ]
+  },
+  "alternatives_and_competitors": {
+    "evaluated": [
+      {
+        "name": "DealHub",
+        "status": "dropped_from_evaluation",
+        "what_they_liked": "Comprehensive CPQ capabilities",
+        "why_they_passed": "Too complex. A peer company has a dedicated DealHub admin. Prospect wants a tool they can figure out on their own. If they cannot self-serve through the evaluation, the tool is too heavy for their team.",
+        "key_quote": "That's why we dropped DealHub, because I got a demo from friends and they basically have an admin just for DealHub, and that's not something that we are looking for."
+      },
+      {
+        "name": "DocuSign",
+        "status": "current_tool_for_signatures",
+        "what_they_liked": "Handles signing order, multiple signees, reassignment, verification steps, document upload, recall and edit. Mature e-signature capabilities.",
+        "why_they_are_evaluating_alternatives": "DocuSign handles documents and signatures but is disconnected from HubSpot CRM. No pricing, quoting, or discount governance. Creates manual re-entry of line items."
+      }
+    ],
+    "current_workaround": {
+      "description": "DocuSign for e-signatures and document generation + HubSpot CRM for deal management + manual line item entry to bridge the two. 78 templates across 20+ languages with no access scoping.",
+      "adequacy": "Functional for signatures but creates disconnected data, manual rework, no discount governance, and no quoting intelligence. The gap between document execution and CRM data is entirely manual."
+    }
+  },
+  "quotes": [
+    {
+      "quote": "Currently in HubSpot, it's based on the units. So the price per unit. And then if the tier is, if we want to do tiered pricing, then we have to put multiple units, and then if they put in the discount of 10, then it discounts four units by 10. I would like to be able for them to just be able to put in set price as a discount per product.",
+      "timestamp": "0:12:39",
+      "speaker_role": "technical_evaluator",
+      "theme": "hubspot_pricing_limitations",
+      "usability": "high",
+      "usage_notes": "Concrete articulation of HubSpot native CPQ's tiered pricing limitation. Directly maps to Quotivity's price book and discount capabilities. Strong for 'HubSpot CPQ limitations' content."
+    },
+    {
+      "quote": "I have around 78 templates right now, and as a salesperson, I only need four. I don't want German people to see the Italian contracts.",
+      "timestamp": "0:14:56",
+      "speaker_role": "technical_evaluator",
+      "theme": "template_sprawl_and_scoping",
+      "usability": "high",
+      "usage_notes": "Quantifies template management pain at scale. 78 templates, 200 quoters, 20+ languages. Perfect for content about template governance in multi-market quoting operations."
+    },
+    {
+      "quote": "That's why we dropped DealHub, because I got a demo from friends and they basically have an admin just for DealHub, and that's not something that we are looking for.",
+      "timestamp": "0:32:03",
+      "speaker_role": "technical_evaluator",
+      "theme": "dealhub_complexity_rejection",
+      "usability": "high",
+      "usage_notes": "Direct competitive intelligence against DealHub. Validates Quotivity's positioning on ease of use and self-service. Strong for DealHub comparison content and 'CPQ without a dedicated admin' messaging."
+    },
+    {
+      "quote": "The idea is that if we are also not able to figure it out on our own, then it might be a bit too complex for us to set up.",
+      "timestamp": "0:32:02",
+      "speaker_role": "technical_evaluator",
+      "theme": "self_service_evaluation_criteria",
+      "usability": "high",
+      "usage_notes": "Reveals a key buying criterion: self-service trial ability is a proxy for implementation complexity. If the evaluator cannot build without hand-holding, the tool fails the test. Strong for product-led growth and ease-of-use content."
+    },
+    {
+      "quote": "Discount cannot go over certain price without an approval.",
+      "timestamp": "0:13:41",
+      "speaker_role": "technical_evaluator",
+      "theme": "discount_governance",
+      "usability": "medium",
+      "usage_notes": "Clear statement of approval workflow requirement tied to discount thresholds. Connects to finance/controller persona pain point. Use in discount governance and approval workflow content."
+    },
+    {
+      "quote": "We really want to just test the trial. Get the hands on the tool, see what we can do, figure out on our own.",
+      "timestamp": "0:31:38",
+      "speaker_role": "technical_evaluator",
+      "theme": "self_service_buying_preference",
+      "usability": "medium",
+      "usage_notes": "Signals product-led buying motion. Prospect resists structured sales-led evaluation. Useful for understanding RevOps buyer behavior and trial conversion strategy."
+    },
+    {
+      "quote": "I would like for customers to be able to write, populate that info in these custom properties.",
+      "timestamp": "0:16:12",
+      "speaker_role": "technical_evaluator",
+      "theme": "hubspot_data_writeback",
+      "usability": "medium",
+      "usage_notes": "Requirement for buyer-side data entry that writes back to HubSpot custom properties. Technical requirement for integration content."
+    }
+  ],
+  "lexicon": {
+    "category_terms": [
+      "price books",
+      "pricing methods",
+      "discount tracking",
+      "approval rules",
+      "quote templates",
+      "signing order",
+      "multiple signees",
+      "custom properties",
+      "write backs",
+      "locking sections",
+      "terms and conditions",
+      "tiered pricing",
+      "set price discount"
+    ],
+    "value_language": [
+      "figure it out on our own",
+      "not rocket science",
+      "stress test the system",
+      "get hands on the tool",
+      "too complex for us to set up",
+      "cut out the middleman",
+      "only display the stuff that's necessary"
+    ],
+    "deviant_terms": [
+      {
+        "term": "admin just for DealHub",
+        "meaning": "A dedicated administrator whose role is solely maintaining the CPQ tool. Used as a disqualifying signal for tool complexity.",
+        "frequency": "used once but was the decisive factor in dropping DealHub"
+      },
+      {
+        "term": "stress test the system",
+        "meaning": "Internal evaluation process where the evaluator and their manager send each other quotes and try to break or find limitations in the tool",
+        "frequency": "used once, describes their evaluation methodology"
+      },
+      {
+        "term": "nooks and crannies",
+        "meaning": "Tool-specific quirks, edge cases, and limitations that only surface during hands-on usage, not demos",
+        "frequency": "used once, reveals preference for self-discovery over sales-guided evaluation"
+      }
+    ]
+  },
+  "keyword_candidates": [
+    {
+      "keyword": "HubSpot CPQ tiered pricing",
+      "source": "direct pain — prospect cannot do tiered pricing or set-price discounts in HubSpot native quoting",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_of_sales"],
+      "content_angle": "How to handle tiered pricing in HubSpot when native quoting only supports per-unit discounts",
+      "scores": {
+        "buyer_intent": 0.95,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.80,
+        "business_priority": 0.85,
+        "mini_volume": 0.60,
+        "authority_fit": 0.90
+      },
+      "weighted_total": 0.8825
+    },
+    {
+      "keyword": "DealHub alternative for HubSpot",
+      "source": "prospect explicitly dropped DealHub due to complexity and is evaluating Quotivity as the alternative",
+      "intent": "comparison_shopping",
+      "persona_fit": ["revops_leader", "vp_of_sales"],
+      "content_angle": "Why mid-market HubSpot teams are choosing simpler CPQ tools over DealHub",
+      "scores": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.95,
+        "serp_weakness": 0.75,
+        "business_priority": 0.70,
+        "mini_volume": 0.65,
+        "authority_fit": 0.85
+      },
+      "weighted_total": 0.8575
+    },
+    {
+      "keyword": "HubSpot quote template management",
+      "source": "prospect managing 78 templates across 20+ languages with no scoping or access control",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "Managing dozens of quote templates in HubSpot: how to scope visibility by team, region, or language",
+      "scores": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.85,
+        "serp_weakness": 0.75,
+        "business_priority": 0.80,
+        "mini_volume": 0.70,
+        "authority_fit": 0.85
+      },
+      "weighted_total": 0.8225
+    },
+    {
+      "keyword": "HubSpot discount approval workflow",
+      "source": "prospect needs discount thresholds that auto-trigger approval routing — not available in HubSpot native",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "finance_controller"],
+      "content_angle": "How to set up discount approval rules in HubSpot that prevent unauthorized discounting",
+      "scores": {
+        "buyer_intent": 0.90,
+        "differentiator_fit": 0.85,
+        "serp_weakness": 0.70,
+        "business_priority": 0.80,
+        "mini_volume": 0.55,
+        "authority_fit": 0.85
+      },
+      "weighted_total": 0.8275
+    },
+    {
+      "keyword": "CPQ for HubSpot without dedicated admin",
+      "source": "prospect's primary objection to DealHub was needing a dedicated admin — self-service is a must-have",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader", "vp_of_sales"],
+      "content_angle": "CPQ tools that RevOps can manage without a dedicated administrator",
+      "scores": {
+        "buyer_intent": 0.85,
+        "differentiator_fit": 0.90,
+        "serp_weakness": 0.85,
+        "business_priority": 0.70,
+        "mini_volume": 0.50,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.8175
+    },
+    {
+      "keyword": "HubSpot quoting for manufacturing",
+      "source": "Dalux is a construction tech company with configure-to-order characteristics — multi-language, multi-market quoting",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader", "vp_of_sales"],
+      "content_angle": "How manufacturing and construction companies handle complex quoting inside HubSpot",
+      "scores": {
+        "buyer_intent": 0.75,
+        "differentiator_fit": 0.80,
+        "serp_weakness": 0.80,
+        "business_priority": 0.75,
+        "mini_volume": 0.65,
+        "authority_fit": 0.80
+      },
+      "weighted_total": 0.7750
+    },
+    {
+      "keyword": "replace DocuSign with HubSpot CPQ",
+      "source": "prospect currently using DocuSign for quoting and signatures, evaluating moving quoting into HubSpot",
+      "intent": "solution_seeking",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "When DocuSign handles signatures but not quoting: bridging the gap with HubSpot-native CPQ",
+      "scores": {
+        "buyer_intent": 0.80,
+        "differentiator_fit": 0.70,
+        "serp_weakness": 0.70,
+        "business_priority": 0.65,
+        "mini_volume": 0.70,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.7375
+    },
+    {
+      "keyword": "multi-language quote templates HubSpot",
+      "source": "prospect has 20+ languages and needs templates scoped by region and language",
+      "intent": "problem_exploration",
+      "persona_fit": ["revops_leader"],
+      "content_angle": "How to manage multi-language quote templates in HubSpot without overwhelming your sales team",
+      "scores": {
+        "buyer_intent": 0.70,
+        "differentiator_fit": 0.75,
+        "serp_weakness": 0.80,
+        "business_priority": 0.65,
+        "mini_volume": 0.55,
+        "authority_fit": 0.75
+      },
+      "weighted_total": 0.7175
+    }
+  ]
+}
