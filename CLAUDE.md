@@ -49,7 +49,7 @@ If the knowledgebase and all derived files exist, tell the user:
 Then list the available skills (see below) and suggest a starting point:
 
 - If `customer-intelligence/transcripts/` contains files: suggest running `/extract-insights`
-- If transcripts are empty but strategy exists: suggest dropping transcripts into `customer-intelligence/transcripts/` or running `/research-brief` to start from strategy alone
+- If transcripts are empty but strategy exists: suggest running `/sync-transcripts` to pull from Google Drive, or dropping transcripts manually into `customer-intelligence/transcripts/`, or running `/research-brief` to start from strategy alone
 - If insights and briefs already exist in `outputs/briefs/`: suggest running `/seo-pipeline`
 
 ---
@@ -67,6 +67,13 @@ Read the master knowledgebase and update all derived module files. Diffs the mas
 
 **Context consumed:** `strategy/knowledge-base.md` --> writes to all derived files
 **When to use:** After editing your master knowledgebase. This is how changes cascade through the system.
+
+### /sync-transcripts
+Pull recent call transcripts from a Google Drive folder and save them locally. Compares Drive contents against existing local files and only downloads new transcripts. Skips internal meetings.
+
+**Context consumed:** Local transcript filenames only (for duplicate detection)
+**MCP required:** Google Drive
+**When to use:** Before running `/extract-insights`, to pull any new transcripts from your shared Drive folder.
 
 ### /extract-insights
 Analyze sales call transcripts using the Grow & Convert pain-point SEO methodology. Extracts structured intelligence: jobs-to-be-done, pains with triggers and costs, workflow reality, competitor mentions and sentiment, customer lexicon (exact phrases buyers use), and keyword candidates with priority scoring.
@@ -148,6 +155,7 @@ These are not required. The core pipeline works with Claude Code and local files
 | HubSpot | `/research-brief` | Deal and contact data for topic prioritization |
 | Clay | `/extract-insights` | Company enrichment from transcript mentions |
 | Lemlist | Future outbound motions | Sequence loading from extracted insights |
+| Google Drive | `/sync-transcripts` | Pull call transcripts from shared Drive folder |
 | GA4 / Analytics | `/research-brief` | Performance feedback loop for topic scoring |
 
 Skills detect MCP availability at runtime. If a server is not connected, the skill runs without it and notes what the integration would add.

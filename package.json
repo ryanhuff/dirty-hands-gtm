@@ -1,0 +1,6 @@
+{
+  "name": "quotivity-insightful-copywriter",
+  "devDependencies": {
+    "marked": "^18.0.3"
+  }
+}

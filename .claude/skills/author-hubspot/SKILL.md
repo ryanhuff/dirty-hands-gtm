@@ -22,7 +22,7 @@ Does NOT read: `strategy/`, `customer-intelligence/`, `proof-library/`
 
 ## Authentication
 
-This skill requires the environment variable `HUBSPOT_PERSONAL_ACCESS_TOKEN` to be set.
+This skill requires the environment variable `HUBSPOT_PERSONAL_ACCESS_TOKEN` to be set. It should be set in the `.env` file.
 
 1. Check that `HUBSPOT_PERSONAL_ACCESS_TOKEN` is available by running: `echo $HUBSPOT_PERSONAL_ACCESS_TOKEN | head -c 4`
 2. If the variable is empty or missing, tell the user:
@@ -139,17 +139,15 @@ Ask the user:
 
 ### Step 3: Convert markdown to HTML
 
-Convert the article body from markdown to HTML. Use a Bash command with a tool that handles markdown-to-HTML conversion. Options in order of preference:
+Convert the article body from markdown to HTML. Strip the YAML front matter (everything between the opening and closing `---`), remove the H1 line, and remove any JSON-LD code blocks (```json ... ```) before converting.
 
-1. If `pandoc` is available: `pandoc -f markdown -t html`
-2. If `npx` is available: `npx marked`
-3. As a last resort, do a basic manual conversion in-skill:
-   - `## heading` --> `<h2>heading</h2>`
-   - `**bold**` --> `<strong>bold</strong>`
-   - `*italic*` --> `<em>italic</em>`
-   - `- list item` --> `<ul><li>list item</li></ul>`
-   - `[text](url)` --> `<a href="url">text</a>`
-   - Paragraphs separated by blank lines --> `<p>...</p>`
+Use the locally installed `marked` package via Node:
+
+```bash
+sed '1,7d' <article_file> | sed '/^# /d' | sed '/^```json$/,/^```$/d' | node -e "const {marked} = require('marked'); let d=''; process.stdin.on('data',c=>d+=c); process.stdin.on('end',()=>console.log(marked.parse(d)))"
+```
+
+Adjust the `sed '1,7d'` range if the front matter is longer or shorter. The key requirement is that `marked` is used as a Node module (`require('marked')`), not via `npx marked` (which does not work correctly in this project).
 
 ### Step 4: Create the blog post
 
